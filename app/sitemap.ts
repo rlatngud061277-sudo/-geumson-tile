@@ -51,6 +51,23 @@ const GYEONGGI_DISTRICTS = [
 ];
 
 /* =========================================
+   인천 10개 군·구
+========================================= */
+
+const INCHEON_DISTRICTS = [
+  "jung",
+  "dong",
+  "michuhol",
+  "yeonsu",
+  "namdong",
+  "bupyeong",
+  "gyeyang",
+  "seo",
+  "ganghwa",
+  "ongjin",
+];
+
+/* =========================================
    사이트맵
 ========================================= */
 
@@ -69,50 +86,71 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/services/tile`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.95,
     },
 
     {
       url: `${SITE_URL}/services/tile/seoul`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     },
 
     {
       url: `${SITE_URL}/services/tile/incheon`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     },
 
     {
       url: `${SITE_URL}/services/tile/gyeonggi`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     },
   ];
+
+  /* =========================================
+     서울 지역 페이지
+  ========================================= */
 
   const seoulPages: MetadataRoute.Sitemap =
     SEOUL_DISTRICTS.map((district) => ({
       url: `${SITE_URL}/services/tile/seoul/${district}`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.85,
     }));
+
+  /* =========================================
+     경기 지역 페이지
+  ========================================= */
 
   const gyeonggiPages: MetadataRoute.Sitemap =
     GYEONGGI_DISTRICTS.map((district) => ({
       url: `${SITE_URL}/services/tile/gyeonggi/${district}`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.85,
+    }));
+
+  /* =========================================
+     인천 지역 페이지
+  ========================================= */
+
+  const incheonPages: MetadataRoute.Sitemap =
+    INCHEON_DISTRICTS.map((district) => ({
+      url: `${SITE_URL}/services/tile/incheon/${district}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
     }));
 
   return [
     ...staticPages,
     ...seoulPages,
     ...gyeonggiPages,
+    ...incheonPages,
   ];
 }

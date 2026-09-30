@@ -1,7 +1,3 @@
-/* =========================================
-   RESET
-========================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -33,21 +29,12 @@ img {
   max-width: 100%;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
 .container {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
 }
 
-/* =========================================
-   HEADER
-========================================= */
+/* HEADER */
 
 .header {
   position: sticky;
@@ -90,7 +77,6 @@ select {
   color: #193660;
   font-size: 20px;
   font-weight: 950;
-  letter-spacing: -0.8px;
 }
 
 .brand-sub {
@@ -103,7 +89,6 @@ select {
 
 .nav {
   display: flex;
-  align-items: center;
   gap: 27px;
 }
 
@@ -143,9 +128,7 @@ select {
   color: #ffffff;
 }
 
-/* =========================================
-   HERO
-========================================= */
+/* HERO */
 
 .hero {
   background:
@@ -214,8 +197,8 @@ select {
 .hero-buttons {
   margin-top: 29px;
   display: flex;
-  flex-wrap: wrap;
   gap: 9px;
+  flex-wrap: wrap;
 }
 
 .primary-button,
@@ -242,9 +225,7 @@ select {
   color: #193660;
 }
 
-/* =========================================
-   HERO VISUAL
-========================================= */
+/* HERO VISUAL */
 
 .hero-visual {
   min-height: 400px;
@@ -293,9 +274,7 @@ select {
   font-weight: 950;
 }
 
-/* =========================================
-   COMMON SECTION
-========================================= */
+/* COMMON */
 
 .section {
   padding: 90px 0;
@@ -331,9 +310,7 @@ select {
   line-height: 1.8;
 }
 
-/* =========================================
-   SERVICE
-========================================= */
+/* SERVICE */
 
 .service-grid {
   display: grid;
@@ -369,72 +346,95 @@ select {
 }
 
 /* =========================================
-   HOME SPACE
+   BEFORE AFTER
 ========================================= */
 
-.home-space-section {
+.before-after-section {
   padding: 90px 0;
   background: #f7f8fa;
 }
 
-.home-space-grid {
+.before-after-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 18px;
 }
 
-.home-space-card {
+.before-after-card {
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid #e3e6ea;
-  border-radius: 18px;
+  border: 1px solid #e2e6ea;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(25, 54, 96, 0.05);
 }
 
-.home-space-pattern {
-  height: 170px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 49%,
-      rgba(255,255,255,0.85) 50%,
-      transparent 51%
-    ),
-    linear-gradient(
-      transparent 49%,
-      rgba(255,255,255,0.85) 50%,
-      transparent 51%
-    ),
-    linear-gradient(
-      135deg,
-      #cfc7b9,
-      #eeebe4
-    );
-  background-size:
-    50% 50%,
-    50% 50%,
-    100% 100%;
+.before-after-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #ffffff;
 }
 
-.home-space-content {
-  padding: 20px;
+.before-after-image-box {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #e7e9ec;
 }
 
-.home-space-content h3 {
-  margin: 0;
-  color: #193660;
-  font-size: 18px;
+.before-after-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.before-label,
+.after-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 10px;
   font-weight: 950;
 }
 
-.home-space-content p {
-  margin: 6px 0 0;
-  color: #7a828c;
-  font-size: 12px;
+.before-label {
+  background: rgba(35, 42, 51, 0.86);
 }
 
-/* =========================================
-   HOME REGION
-========================================= */
+.after-label {
+  background: rgba(25, 54, 96, 0.92);
+}
+
+.before-after-content {
+  padding: 22px;
+}
+
+.before-after-content > span {
+  color: #a17f49;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.before-after-content h3 {
+  margin: 8px 0 0;
+  color: #193660;
+  font-size: 19px;
+  font-weight: 950;
+  letter-spacing: -0.5px;
+}
+
+.before-after-content p {
+  margin: 8px 0 0;
+  color: #737c87;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* REGION */
 
 .home-region-section {
   padding: 90px 0;
@@ -456,7 +456,6 @@ select {
 .home-region-card-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   gap: 20px;
 }
 
@@ -473,7 +472,6 @@ select {
   color: #193660;
   font-size: 23px;
   font-weight: 950;
-  letter-spacing: -1px;
 }
 
 .home-region-card p {
@@ -515,9 +513,7 @@ select {
   font-weight: 850;
 }
 
-/* =========================================
-   PHOTO CONSULT
-========================================= */
+/* PHOTO */
 
 .photo-consult-section {
   padding: 85px 0;
@@ -541,10 +537,9 @@ select {
 }
 
 .photo-consult-inner > div:first-child > p {
-  margin: 17px 0 0;
   color: #666f7c;
-  line-height: 1.8;
   font-size: 14px;
+  line-height: 1.8;
 }
 
 .photo-consult-card {
@@ -587,9 +582,7 @@ select {
   font-weight: 900;
 }
 
-/* =========================================
-   CONTACT
-========================================= */
+/* CONTACT */
 
 .contact-section-new {
   padding: 70px 0;
@@ -612,14 +605,12 @@ select {
 .contact-new-inner h2 {
   margin: 8px 0 0;
   color: #ffffff;
-  font-size: clamp(31px, 4vw, 40px);
+  font-size: 38px;
   line-height: 1.25;
-  letter-spacing: -2px;
   font-weight: 950;
 }
 
 .contact-new-inner p {
-  margin: 10px 0 0;
   color: #c4cedd;
   font-size: 13px;
 }
@@ -632,7 +623,6 @@ select {
 .contact-new-buttons a {
   min-width: 135px;
   min-height: 50px;
-  padding: 0 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -652,9 +642,7 @@ select {
   color: #49371c;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* FOOTER */
 
 .footer {
   padding: 43px 0;
@@ -691,9 +679,9 @@ select {
   font-weight: 950;
 }
 
-/* =========================================================
-   지역 상세페이지
-========================================================= */
+/* =========================================
+   상세페이지 유지
+========================================= */
 
 .clean-area-page {
   background: #ffffff;
@@ -706,13 +694,7 @@ select {
 
 .clean-area-hero {
   padding: 92px 0 82px;
-  background:
-    linear-gradient(
-      135deg,
-      #faf8f3 0%,
-      #f3efe7 60%,
-      #eef1f5 100%
-    );
+  background: linear-gradient(135deg, #faf8f3, #eef1f5);
   text-align: center;
 }
 
@@ -721,7 +703,6 @@ select {
   color: #9f7d46;
   font-size: 11px;
   font-weight: 900;
-  letter-spacing: 1.4px;
 }
 
 .clean-area-hero h1 {
@@ -729,7 +710,6 @@ select {
   color: #193660;
   font-size: clamp(43px, 6vw, 62px);
   line-height: 1.13;
-  letter-spacing: -3px;
   font-weight: 950;
 }
 
@@ -752,7 +732,6 @@ select {
 .clean-sms-button {
   min-width: 160px;
   min-height: 51px;
-  padding: 0 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -777,7 +756,6 @@ select {
   margin-top: 14px;
   color: #987743;
   font-size: 13px;
-  font-weight: 850;
 }
 
 .clean-section {
@@ -800,15 +778,13 @@ select {
   color: #a17f49;
   font-size: 11px;
   font-weight: 900;
-  letter-spacing: 1.4px;
 }
 
 .clean-section-heading h2 {
   margin: 9px 0 0;
   color: #193660;
-  font-size: clamp(30px, 4vw, 40px);
+  font-size: 38px;
   line-height: 1.25;
-  letter-spacing: -2px;
   font-weight: 950;
 }
 
@@ -832,14 +808,11 @@ select {
 }
 
 .clean-service-card h3 {
-  margin: 15px 0 0;
   color: #193660;
   font-size: 19px;
-  font-weight: 950;
 }
 
 .clean-service-card p {
-  margin: 11px 0 0;
   color: #6c7581;
   font-size: 13px;
   line-height: 1.75;
@@ -887,23 +860,12 @@ select {
   color: #977442;
   font-size: 11px;
   font-weight: 900;
-  letter-spacing: 1.4px;
 }
 
 .clean-photo-inner h2 {
-  margin: 10px 0 0;
   color: #193660;
-  font-size: clamp(31px, 4vw, 42px);
-  line-height: 1.25;
-  letter-spacing: -2px;
+  font-size: 38px;
   font-weight: 950;
-}
-
-.clean-photo-inner p {
-  margin: 17px 0 0;
-  color: #666f7b;
-  font-size: 14px;
-  line-height: 1.8;
 }
 
 .clean-photo-card {
@@ -917,14 +879,12 @@ select {
   display: block;
   color: #193660;
   font-size: 23px;
-  font-weight: 950;
 }
 
 .clean-photo-card span {
   display: block;
   margin-top: 8px;
   color: #7c838d;
-  font-size: 12px;
 }
 
 .clean-photo-card a {
@@ -934,10 +894,9 @@ select {
   align-items: center;
   justify-content: center;
   background: #193660;
-  border-radius: 10px;
   color: #ffffff;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 900;
 }
 
 .clean-bottom-cta {
@@ -949,27 +908,14 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 35px;
-}
-
-.clean-bottom-inner > div:first-child > span {
-  color: #d5b879;
-  font-size: 12px;
-  font-weight: 900;
 }
 
 .clean-bottom-inner h2 {
-  margin: 8px 0 0;
   color: #ffffff;
-  font-size: 32px;
-  font-weight: 950;
-  letter-spacing: -1.5px;
 }
 
 .clean-bottom-inner p {
-  margin: 9px 0 0;
   color: #c3ccda;
-  font-size: 13px;
 }
 
 .clean-bottom-buttons {
@@ -985,8 +931,6 @@ select {
   justify-content: center;
   border-radius: 10px;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 900;
 }
 
 .clean-bottom-buttons a:first-child {
@@ -999,17 +943,11 @@ select {
   color: #49371c;
 }
 
-/* =========================================
-   MOBILE FIXED
-========================================= */
-
 .clean-mobile-actions {
   display: none;
 }
 
-/* =========================================
-   TABLET
-========================================= */
+/* TABLET */
 
 @media (max-width: 900px) {
   .nav {
@@ -1029,32 +967,25 @@ select {
     justify-content: center;
   }
 
-  .hero-visual {
-    max-width: 560px;
+  .service-grid,
+  .before-after-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .before-after-card {
+    max-width: 650px;
     width: 100%;
     margin: 0 auto;
   }
 
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home-space-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .photo-consult-inner {
+  .photo-consult-inner,
+  .clean-photo-inner {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .photo-consult-card {
-    max-width: 420px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .contact-new-inner {
+  .contact-new-inner,
+  .clean-bottom-inner {
     flex-direction: column;
     text-align: center;
   }
@@ -1062,31 +993,9 @@ select {
   .clean-service-grid {
     grid-template-columns: 1fr;
   }
-
-  .clean-space-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .clean-photo-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .clean-photo-card {
-    max-width: 420px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .clean-bottom-inner {
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
   body {
@@ -1105,15 +1014,10 @@ select {
   .brand-mark {
     width: 42px;
     height: 42px;
-    border-radius: 12px;
   }
 
   .brand-name {
     font-size: 18px;
-  }
-
-  .brand-sub {
-    font-size: 8px;
   }
 
   .header-actions {
@@ -1124,30 +1028,18 @@ select {
     min-height: auto;
     padding-top: 58px;
     padding-bottom: 58px;
-    gap: 38px;
   }
 
   .hero h1 {
     font-size: 39px;
-    letter-spacing: -2.2px;
   }
 
   .hero-description {
     font-size: 14px;
   }
 
-  .hero-visual {
-    min-height: 320px;
-    border-radius: 22px;
-  }
-
-  .tile-grid {
-    width: 170px;
-    height: 170px;
-  }
-
   .section,
-  .home-space-section,
+  .before-after-section,
   .home-region-section,
   .photo-consult-section {
     padding-top: 65px;
@@ -1160,59 +1052,41 @@ select {
 
   .section-head h2 {
     font-size: 29px;
-    letter-spacing: -1.5px;
   }
 
-  .service-card {
-    padding: 23px;
-  }
+  /* 전후 사진은 모바일에서도 좌우 유지 */
 
-  .home-space-grid {
+  .before-after-images {
     grid-template-columns: 1fr 1fr;
-    gap: 9px;
+    gap: 2px;
   }
 
-  .home-space-pattern {
-    height: 120px;
+  .before-after-image-box {
+    height: 220px;
   }
 
-  .home-space-content {
-    padding: 15px;
+  .before-label,
+  .after-label {
+    left: 8px;
+    bottom: 8px;
+    padding: 6px 8px;
+    font-size: 9px;
   }
 
-  .home-space-content h3 {
-    font-size: 15px;
+  .before-after-content {
+    padding: 18px;
   }
 
-  .home-space-content p {
-    font-size: 11px;
+  .before-after-content h3 {
+    font-size: 18px;
   }
 
   .home-region-card {
     padding: 21px;
   }
 
-  .home-region-card-top {
-    gap: 12px;
-  }
-
   .home-region-card h3 {
     font-size: 20px;
-  }
-
-  .home-region-card p {
-    font-size: 12px;
-  }
-
-  .home-region-all {
-    min-height: 37px;
-    padding: 0 11px;
-    font-size: 11px;
-  }
-
-  .home-region-links {
-    margin-top: 18px;
-    gap: 6px;
   }
 
   .home-region-links a {
@@ -1220,25 +1094,8 @@ select {
     font-size: 11px;
   }
 
-  .photo-consult-inner h2 {
-    font-size: 29px;
-  }
-
-  .contact-section-new {
-    padding: 55px 0;
-  }
-
   .contact-new-inner h2 {
     font-size: 29px;
-  }
-
-  .contact-new-buttons {
-    width: 100%;
-  }
-
-  .contact-new-buttons a {
-    flex: 1;
-    min-width: 0;
   }
 
   .footer-inner {
@@ -1249,99 +1106,23 @@ select {
     text-align: left;
   }
 
-  /* 상세페이지 */
-
-  .clean-area-hero {
-    padding: 65px 0 58px;
-  }
-
   .clean-area-hero h1 {
     font-size: 38px;
-    letter-spacing: -2px;
-  }
-
-  .clean-area-hero p {
-    margin-top: 18px;
-    font-size: 14px;
-  }
-
-  .desktop-br {
-    display: none;
   }
 
   .clean-area-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
   }
 
   .clean-call-button,
   .clean-sms-button {
     min-width: 0;
-    min-height: 49px;
-    padding: 0 8px;
-  }
-
-  .clean-section {
-    padding: 62px 0;
-  }
-
-  .clean-section-heading {
-    margin-bottom: 26px;
-  }
-
-  .clean-section-heading h2 {
-    font-size: 29px;
-    letter-spacing: -1.5px;
-  }
-
-  .clean-service-card {
-    padding: 23px;
   }
 
   .clean-space-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
   }
-
-  .clean-space-item {
-    padding: 17px 14px;
-  }
-
-  .clean-space-item div {
-    font-size: 15px;
-  }
-
-  .clean-space-item span {
-    font-size: 11px;
-  }
-
-  .clean-photo-section {
-    padding: 62px 0;
-  }
-
-  .clean-photo-inner h2 {
-    font-size: 29px;
-  }
-
-  .clean-bottom-cta {
-    padding: 54px 0;
-  }
-
-  .clean-bottom-inner h2 {
-    font-size: 28px;
-  }
-
-  .clean-bottom-buttons {
-    width: 100%;
-  }
-
-  .clean-bottom-buttons a {
-    flex: 1;
-    min-width: 0;
-  }
-
-  /* 고정 전화/문자 */
 
   .clean-mobile-actions {
     position: fixed;

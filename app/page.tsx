@@ -13,6 +13,14 @@ const PHONE = "01080561990";
 const PHONE_DISPLAY = "010-8056-1990";
 const PHONE_LINK = `tel:${PHONE}`;
 
+const SMS_MESSAGE = `안녕하세요. 금손종합보수 타일 시공 문의드립니다.
+
+지역:
+작업내용:
+파손된 타일 사진을 첨부해서 보내드리겠습니다.`;
+
+const SMS_LINK = `sms:${PHONE}?body=${encodeURIComponent(SMS_MESSAGE)}`;
+
 /* =========================================
    SEO
 ========================================= */
@@ -184,9 +192,15 @@ export default function Home() {
               <a href="#contact">견적 문의</a>
             </nav>
 
-            <a href={PHONE_LINK} className="call-button">
-              전화 상담
-            </a>
+            <div className="header-actions">
+              <a href={SMS_LINK} className="header-sms">
+                문자 상담
+              </a>
+
+              <a href={PHONE_LINK} className="call-button">
+                전화 상담
+              </a>
+            </div>
           </div>
         </header>
 
@@ -221,11 +235,11 @@ export default function Home() {
 
               <div className="hero-buttons">
                 <a href={PHONE_LINK} className="primary-button">
-                  📞 {PHONE_DISPLAY}
+                  📞 전화 상담
                 </a>
 
-                <a href="#service" className="secondary-button">
-                  서비스 보기
+                <a href={SMS_LINK} className="sms-button">
+                  💬 문자로 사진 보내기
                 </a>
               </div>
             </div>
@@ -390,6 +404,57 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 문자 상담 */}
+        <section className="sms-section">
+          <div className="container sms-inner">
+            <div className="sms-content">
+              <div className="eyebrow">PHOTO CONSULTATION</div>
+
+              <h2>
+                타일 사진으로
+                <br />
+                빠르게 상담받으세요
+              </h2>
+
+              <p>
+                파손된 타일의 전체 모습과 가까이 찍은 사진,
+                작업 지역을 문자로 보내주세요.
+                <br />
+                현장 상태를 확인한 뒤 작업 가능 여부와 상담을
+                도와드립니다.
+              </p>
+
+              <div className="sms-guide">
+                <span>① 작업 지역</span>
+                <span>② 벽 또는 바닥</span>
+                <span>③ 파손 부위 사진</span>
+              </div>
+            </div>
+
+            <div className="sms-box">
+              <div className="sms-icon">💬</div>
+
+              <div className="sms-box-title">
+                사진 문자 상담
+              </div>
+
+              <div className="sms-phone">
+                {PHONE_DISPLAY}
+              </div>
+
+              <p>
+                사진과 간단한 작업 내용을
+                <br />
+                문자로 보내주세요.
+              </p>
+
+              <a href={SMS_LINK} className="sms-big-button">
+                문자로 사진 보내기
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* CONTACT */}
         <section id="contact" className="contact-section">
           <div className="container contact-inner">
@@ -411,9 +476,15 @@ export default function Home() {
               </p>
             </div>
 
-            <a href={PHONE_LINK} className="contact-button">
-              📞 {PHONE_DISPLAY}
-            </a>
+            <div className="contact-buttons">
+              <a href={PHONE_LINK} className="contact-button">
+                📞 전화 상담
+              </a>
+
+              <a href={SMS_LINK} className="contact-sms-button">
+                💬 문자 상담
+              </a>
+            </div>
           </div>
         </section>
 
@@ -444,9 +515,16 @@ export default function Home() {
           </div>
         </footer>
 
-        <a href={PHONE_LINK} className="mobile-call">
-          📞 전화 상담
-        </a>
+        {/* MOBILE FIXED BUTTONS */}
+        <div className="mobile-actions">
+          <a href={PHONE_LINK} className="mobile-call">
+            📞 전화
+          </a>
+
+          <a href={SMS_LINK} className="mobile-sms">
+            💬 문자
+          </a>
+        </div>
       </main>
     </>
   );

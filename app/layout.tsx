@@ -1,22 +1,21 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 /* =========================================
-   사이트 기본 정보
+   기본 정보
 ========================================= */
 
 const SITE_URL = "https://www.geumsontile.com";
-
 const SITE_NAME = "금손종합보수";
 
 const SITE_TITLE =
-  "금손종합보수 | 서울·인천·경기 타일 수리·보수·교체 전문";
+  "금손종합보수 | 서울·인천·경기 타일 수리·보수·부분교체";
 
 const SITE_DESCRIPTION =
-  "금손종합보수는 서울 전 지역, 인천, 김포, 고양, 부천, 파주, 시흥, 광명, 안산, 안양, 군포 지역의 벽타일·바닥타일 부분 수리, 보수, 교체, 복원 전문업체입니다.";
+  "금손종합보수는 서울 전 지역, 인천 및 경기 주요 지역의 벽타일·바닥타일 수리, 보수, 부분교체, 복원 상담을 진행합니다.";
 
 /* =========================================
-   사이트 공통 SEO
+   전체 사이트 메타데이터
 ========================================= */
 
 export const metadata: Metadata = {
@@ -29,119 +28,83 @@ export const metadata: Metadata = {
 
   description: SITE_DESCRIPTION,
 
-  applicationName: SITE_NAME,
-
   keywords: [
     "금손종합보수",
-
     "타일수리",
     "타일보수",
     "타일교체",
     "타일복원",
-
-    "벽타일수리",
-    "벽타일보수",
-    "벽타일교체",
-    "벽타일복원",
-
-    "바닥타일수리",
-    "바닥타일보수",
-    "바닥타일교체",
-    "바닥타일복원",
-
     "타일부분수리",
     "타일부분보수",
     "타일부분교체",
-    "타일부분복원",
-
-    "깨진타일수리",
-    "들뜬타일수리",
-    "타일깨짐",
-    "타일들뜸",
-    "타일탈락",
-
-    "화장실타일수리",
-    "욕실타일수리",
-    "주방타일수리",
-    "거실타일수리",
-    "상가타일수리",
-
+    "벽타일수리",
+    "벽타일보수",
+    "바닥타일수리",
+    "바닥타일보수",
     "서울타일수리",
     "서울타일보수",
     "인천타일수리",
-    "김포타일수리",
-    "고양타일수리",
-    "부천타일수리",
-    "파주타일수리",
-    "시흥타일수리",
-    "광명타일수리",
-    "안산타일수리",
-    "안양타일수리",
-    "군포타일수리",
+    "인천타일보수",
+    "경기타일수리",
+    "경기타일보수",
   ],
-
-  authors: [
-    {
-      name: "금손종합보수",
-    },
-  ],
-
-  creator: "금손종합보수",
-
-  publisher: "금손종합보수",
 
   alternates: {
     canonical: SITE_URL,
   },
 
-  openGraph: {
-    type: "website",
+  /* =========================================
+     네이버 서치어드바이저 소유확인
+  ========================================= */
 
-    locale: "ko_KR",
-
-    url: SITE_URL,
-
-    siteName: SITE_NAME,
-
-    title: SITE_TITLE,
-
-    description: SITE_DESCRIPTION,
+  verification: {
+    other: {
+      "naver-site-verification":
+        "d96d8c809fcd0610fada17e8a15fa352fceaf1bb",
+    },
   },
 
-  twitter: {
-    card: "summary_large_image",
-
-    title: SITE_TITLE,
-
-    description: SITE_DESCRIPTION,
-  },
+  /* =========================================
+     검색엔진
+  ========================================= */
 
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
     },
   },
 
-  category: "타일 시공 및 보수",
+  /* =========================================
+     OPEN GRAPH
+  ========================================= */
+
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "ko_KR",
+    type: "website",
+  },
+
+  /* =========================================
+     기타
+  ========================================= */
+
+  category: "home improvement",
 };
 
 /* =========================================
-   VIEWPORT
+   모바일 화면
 ========================================= */
 
-export const viewport = {
+export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-
-  themeColor: "#172c56",
 };
 
 /* =========================================

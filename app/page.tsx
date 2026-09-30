@@ -67,7 +67,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "금손종합보수 | 타일 수리·보수·부분교체",
+    title:
+      "금손종합보수 | 타일 수리·보수·부분교체",
     description:
       "서울·인천·경기 주요 지역 벽타일·바닥타일 부분수리, 보수, 교체 상담.",
     url: SITE_URL,
@@ -105,33 +106,45 @@ const services = [
 ];
 
 /* =========================================
-   작업 공간
+   실제 시공사진 카테고리
 ========================================= */
 
 const spaces = [
   {
-    title: "주방 타일",
-    desc: "벽 · 바닥 타일",
+    title: "주방 바닥 타일",
+    desc: "주방 바닥 타일 수리 · 보수",
+    image: "/IMG_1190.jpeg",
+    alt: "주방 바닥 타일 시공 현장",
   },
   {
-    title: "화장실 타일",
-    desc: "벽 · 바닥 타일",
+    title: "복도 · 현관 타일",
+    desc: "복도 및 현관 바닥 타일 보수",
+    image: "/IMG_1186.jpeg",
+    alt: "복도 바닥 타일 시공 현장",
   },
   {
-    title: "욕실 타일",
-    desc: "부분수리 · 교체",
+    title: "욕실 바닥 타일",
+    desc: "욕실 바닥 타일 수리 · 보수",
+    image: "/IMG_1184.jpeg",
+    alt: "욕실 바닥 타일 시공 현장",
   },
   {
-    title: "거실 타일",
-    desc: "바닥타일 보수",
+    title: "욕실 벽타일",
+    desc: "욕실 벽타일 부분수리 · 교체",
+    image: "/IMG_1179.jpeg",
+    alt: "욕실 벽타일 보수 현장",
   },
   {
-    title: "상가 타일",
-    desc: "벽 · 바닥 타일",
+    title: "거실 벽타일",
+    desc: "거실 벽타일 부분 교체 · 복원",
+    image: "/IMG_1175.jpeg",
+    alt: "거실 벽타일 시공 현장",
   },
   {
-    title: "기타 공간",
-    desc: "현장 사진 상담",
+    title: "타일 부분보수",
+    desc: "파손 부위 철거 · 부분교체",
+    image: "/IMG_1178.jpeg",
+    alt: "타일 부분보수 작업 현장",
   },
 ];
 
@@ -266,7 +279,7 @@ export default function Home() {
 
             <nav className="nav">
               <a href="#service">타일 서비스</a>
-              <a href="#space">작업 공간</a>
+              <a href="#space">시공 분야</a>
               <a href="#region">출장 지역</a>
               <a href="#contact">견적 문의</a>
             </nav>
@@ -395,7 +408,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SPACE */}
+        {/* 실제 시공사진 */}
 
         <section
           id="space"
@@ -404,29 +417,43 @@ export default function Home() {
           <div className="container">
             <div className="section-head">
               <div className="eyebrow">
-                WORK SPACE
+                WORK CATEGORY
               </div>
 
               <h2>
-                다양한 공간의
-                <br />
-                타일 문제를 상담합니다
+                실제 시공 현장
               </h2>
+
+              <p>
+                금손종합보수가 작업하는 주요
+                타일 수리·보수 분야입니다.
+              </p>
             </div>
 
             <div className="home-space-grid">
               {spaces.map((space) => (
-                <div
+                <article
                   key={space.title}
                   className="home-space-card"
                 >
-                  <div className="home-space-pattern" />
+                  <div className="home-space-image-wrap">
+                    <img
+                      src={space.image}
+                      alt={space.alt}
+                      className="home-space-image"
+                    />
+
+                    <div className="home-space-image-badge">
+                      TILE REPAIR
+                    </div>
+                  </div>
 
                   <div className="home-space-content">
                     <h3>{space.title}</h3>
+
                     <p>{space.desc}</p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -455,8 +482,6 @@ export default function Home() {
             </div>
 
             <div className="home-region-groups">
-              {/* 서울 */}
-
               <article className="home-region-card">
                 <div className="home-region-card-top">
                   <div>
@@ -491,8 +516,6 @@ export default function Home() {
                 </div>
               </article>
 
-              {/* 경기 */}
-
               <article className="home-region-card">
                 <div className="home-region-card-top">
                   <div>
@@ -526,8 +549,6 @@ export default function Home() {
                   ))}
                 </div>
               </article>
-
-              {/* 인천 */}
 
               <article className="home-region-card">
                 <div className="home-region-card-top">

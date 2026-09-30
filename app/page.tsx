@@ -106,45 +106,33 @@ const services = [
 ];
 
 /* =========================================
-   실제 시공사진 카테고리
+   시공 전후
 ========================================= */
 
-const spaces = [
+const beforeAfter = [
   {
-    title: "주방 바닥 타일",
-    desc: "주방 바닥 타일 수리 · 보수",
-    image: "/IMG_1190.jpeg",
-    alt: "주방 바닥 타일 시공 현장",
+    title: "욕실 벽타일 부분교체",
+    desc: "깨진 욕실 벽타일을 철거하고 부분 교체한 현장",
+    before: "/IMG_1176.jpeg",
+    after: "/IMG_1179.jpeg",
+    beforeAlt: "욕실 벽타일 파손 시공 전",
+    afterAlt: "욕실 벽타일 부분교체 시공 후",
   },
   {
-    title: "복도 · 현관 타일",
-    desc: "복도 및 현관 바닥 타일 보수",
-    image: "/IMG_1186.jpeg",
-    alt: "복도 바닥 타일 시공 현장",
+    title: "거실 벽타일 복원",
+    desc: "기존 타일 철거 후 벽면 타일을 다시 복원한 현장",
+    before: "/IMG_1178.jpeg",
+    after: "/IMG_1175.jpeg",
+    beforeAlt: "거실 벽타일 철거 시공 전",
+    afterAlt: "거실 벽타일 복원 시공 후",
   },
   {
-    title: "욕실 바닥 타일",
-    desc: "욕실 바닥 타일 수리 · 보수",
-    image: "/IMG_1184.jpeg",
-    alt: "욕실 바닥 타일 시공 현장",
-  },
-  {
-    title: "욕실 벽타일",
-    desc: "욕실 벽타일 부분수리 · 교체",
-    image: "/IMG_1179.jpeg",
-    alt: "욕실 벽타일 보수 현장",
-  },
-  {
-    title: "거실 벽타일",
-    desc: "거실 벽타일 부분 교체 · 복원",
-    image: "/IMG_1175.jpeg",
-    alt: "거실 벽타일 시공 현장",
-  },
-  {
-    title: "타일 부분보수",
-    desc: "파손 부위 철거 · 부분교체",
-    image: "/IMG_1178.jpeg",
-    alt: "타일 부분보수 작업 현장",
+    title: "욕실 바닥·코너 보수",
+    desc: "욕실 바닥과 코너 마감 상태를 정리한 보수 현장",
+    before: "/IMG_1184.jpeg",
+    after: "/IMG_1187.jpeg",
+    beforeAlt: "욕실 바닥 타일 보수 전",
+    afterAlt: "욕실 바닥 코너 보수 후",
   },
 ];
 
@@ -225,7 +213,6 @@ export default function Home() {
     url: SITE_URL,
     telephone: PHONE_DISPLAY,
     founder: OWNER,
-
     areaServed: [
       "서울특별시",
       "인천광역시",
@@ -239,7 +226,6 @@ export default function Home() {
       "안양",
       "군포",
     ],
-
     serviceType: [
       "벽타일 수리",
       "바닥타일 수리",
@@ -279,7 +265,7 @@ export default function Home() {
 
             <nav className="nav">
               <a href="#service">타일 서비스</a>
-              <a href="#space">시공 분야</a>
+              <a href="#case">시공 전후</a>
               <a href="#region">출장 지역</a>
               <a href="#contact">견적 문의</a>
             </nav>
@@ -368,10 +354,7 @@ export default function Home() {
 
         {/* SERVICE */}
 
-        <section
-          id="service"
-          className="section"
-        >
+        <section id="service" className="section">
           <div className="container">
             <div className="section-head">
               <div className="eyebrow">
@@ -383,9 +366,8 @@ export default function Home() {
               </h2>
 
               <p>
-                불필요한 전체 철거보다 현장 상태에
-                맞는 부분 수리와 부분 교체를
-                우선합니다.
+                불필요한 전체 철거보다 현장 상태에 맞는
+                부분 수리와 부분 교체를 우선합니다.
               </p>
             </div>
 
@@ -400,7 +382,6 @@ export default function Home() {
                   </div>
 
                   <h3>{service.title}</h3>
-
                   <p>{service.desc}</p>
                 </article>
               ))}
@@ -408,50 +389,62 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 실제 시공사진 */}
+        {/* BEFORE AFTER */}
 
-        <section
-          id="space"
-          className="home-space-section"
-        >
+        <section id="case" className="before-after-section">
           <div className="container">
             <div className="section-head">
               <div className="eyebrow">
-                WORK CATEGORY
+                BEFORE & AFTER
               </div>
 
               <h2>
-                실제 시공 현장
+                실제 시공 전후
               </h2>
 
               <p>
-                금손종합보수가 작업하는 주요
-                타일 수리·보수 분야입니다.
+                시공 전과 시공 후 모습을 한눈에 비교해보세요.
               </p>
             </div>
 
-            <div className="home-space-grid">
-              {spaces.map((space) => (
+            <div className="before-after-grid">
+              {beforeAfter.map((item) => (
                 <article
-                  key={space.title}
-                  className="home-space-card"
+                  key={item.title}
+                  className="before-after-card"
                 >
-                  <div className="home-space-image-wrap">
-                    <img
-                      src={space.image}
-                      alt={space.alt}
-                      className="home-space-image"
-                    />
+                  <div className="before-after-images">
+                    <div className="before-after-image-box">
+                      <img
+                        src={item.before}
+                        alt={item.beforeAlt}
+                      />
 
-                    <div className="home-space-image-badge">
-                      TILE REPAIR
+                      <span className="before-label">
+                        시공 전
+                      </span>
+                    </div>
+
+                    <div className="before-after-image-box">
+                      <img
+                        src={item.after}
+                        alt={item.afterAlt}
+                      />
+
+                      <span className="after-label">
+                        시공 후
+                      </span>
                     </div>
                   </div>
 
-                  <div className="home-space-content">
-                    <h3>{space.title}</h3>
+                  <div className="before-after-content">
+                    <span>
+                      금손종합보수 시공사례
+                    </span>
 
-                    <p>{space.desc}</p>
+                    <h3>{item.title}</h3>
+
+                    <p>{item.desc}</p>
                   </div>
                 </article>
               ))}
@@ -603,9 +596,8 @@ export default function Home() {
               </h2>
 
               <p>
-                작업 지역과 타일 상태가 잘 보이는
-                사진을 문자로 보내주시면
-                확인 후 상담해드립니다.
+                작업 지역과 타일 상태가 잘 보이는 사진을
+                문자로 보내주시면 확인 후 상담해드립니다.
               </p>
             </div>
 
@@ -635,9 +627,7 @@ export default function Home() {
         >
           <div className="container contact-new-inner">
             <div>
-              <span>
-                금손종합보수
-              </span>
+              <span>금손종합보수</span>
 
               <h2>
                 타일 수리·보수
@@ -692,7 +682,7 @@ export default function Home() {
           </div>
         </footer>
 
-        {/* MOBILE FIXED */}
+        {/* MOBILE */}
 
         <div className="clean-mobile-actions">
           <a href={PHONE_LINK}>

@@ -118,6 +118,7 @@ const beforeAfter = [
     beforeAlt: "욕실 벽타일 파손 시공 전",
     afterAlt: "욕실 벽타일 부분교체 시공 후",
   },
+
   {
     title: "거실 벽타일 복원",
     desc: "기존 타일 철거 후 벽면 타일을 다시 복원한 현장",
@@ -126,13 +127,19 @@ const beforeAfter = [
     beforeAlt: "거실 벽타일 철거 시공 전",
     afterAlt: "거실 벽타일 복원 시공 후",
   },
+
   {
     title: "욕실 바닥·코너 보수",
-    desc: "욕실 바닥과 코너 마감 상태를 정리한 보수 현장",
-    before: "/IMG_1184.jpeg",
-    after: "/IMG_1187.jpeg",
-    beforeAlt: "욕실 바닥 타일 보수 전",
-    afterAlt: "욕실 바닥 코너 보수 후",
+    desc: "기존 바닥 타일 철거 후 욕실 바닥과 코너를 깔끔하게 보수한 현장",
+
+    /* 시공 전 */
+    before: "/IMG_1183.jpeg",
+
+    /* 시공 후 */
+    after: "/IMG_1184.jpeg",
+
+    beforeAlt: "욕실 바닥 타일 철거 후 시공 전",
+    afterAlt: "욕실 바닥 타일 및 코너 보수 시공 후",
   },
 ];
 
@@ -213,6 +220,7 @@ export default function Home() {
     url: SITE_URL,
     telephone: PHONE_DISPLAY,
     founder: OWNER,
+
     areaServed: [
       "서울특별시",
       "인천광역시",
@@ -226,6 +234,7 @@ export default function Home() {
       "안양",
       "군포",
     ],
+
     serviceType: [
       "벽타일 수리",
       "바닥타일 수리",
@@ -250,7 +259,9 @@ export default function Home() {
         <header className="header">
           <div className="container header-inner">
             <Link href="/" className="brand">
-              <div className="brand-mark">◆</div>
+              <div className="brand-mark">
+                ◆
+              </div>
 
               <div>
                 <div className="brand-name">
@@ -264,10 +275,21 @@ export default function Home() {
             </Link>
 
             <nav className="nav">
-              <a href="#service">타일 서비스</a>
-              <a href="#case">시공 전후</a>
-              <a href="#region">출장 지역</a>
-              <a href="#contact">견적 문의</a>
+              <a href="#service">
+                타일 서비스
+              </a>
+
+              <a href="#case">
+                시공 전후
+              </a>
+
+              <a href="#region">
+                출장 지역
+              </a>
+
+              <a href="#contact">
+                견적 문의
+              </a>
             </nav>
 
             <div className="header-actions">
@@ -354,7 +376,10 @@ export default function Home() {
 
         {/* SERVICE */}
 
-        <section id="service" className="section">
+        <section
+          id="service"
+          className="section"
+        >
           <div className="container">
             <div className="section-head">
               <div className="eyebrow">
@@ -366,8 +391,9 @@ export default function Home() {
               </h2>
 
               <p>
-                불필요한 전체 철거보다 현장 상태에 맞는
-                부분 수리와 부분 교체를 우선합니다.
+                불필요한 전체 철거보다 현장 상태에
+                맞는 부분 수리와 부분 교체를
+                우선합니다.
               </p>
             </div>
 
@@ -381,8 +407,13 @@ export default function Home() {
                     {service.number}
                   </div>
 
-                  <h3>{service.title}</h3>
-                  <p>{service.desc}</p>
+                  <h3>
+                    {service.title}
+                  </h3>
+
+                  <p>
+                    {service.desc}
+                  </p>
                 </article>
               ))}
             </div>
@@ -391,7 +422,10 @@ export default function Home() {
 
         {/* BEFORE AFTER */}
 
-        <section id="case" className="before-after-section">
+        <section
+          id="case"
+          className="before-after-section"
+        >
           <div className="container">
             <div className="section-head">
               <div className="eyebrow">
@@ -403,7 +437,8 @@ export default function Home() {
               </h2>
 
               <p>
-                시공 전과 시공 후 모습을 한눈에 비교해보세요.
+                시공 전과 시공 후 모습을
+                한눈에 비교해보세요.
               </p>
             </div>
 
@@ -414,6 +449,8 @@ export default function Home() {
                   className="before-after-card"
                 >
                   <div className="before-after-images">
+                    {/* 시공 전 */}
+
                     <div className="before-after-image-box">
                       <img
                         src={item.before}
@@ -424,6 +461,8 @@ export default function Home() {
                         시공 전
                       </span>
                     </div>
+
+                    {/* 시공 후 */}
 
                     <div className="before-after-image-box">
                       <img
@@ -442,9 +481,13 @@ export default function Home() {
                       금손종합보수 시공사례
                     </span>
 
-                    <h3>{item.title}</h3>
+                    <h3>
+                      {item.title}
+                    </h3>
 
-                    <p>{item.desc}</p>
+                    <p>
+                      {item.desc}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -469,12 +512,15 @@ export default function Home() {
               </h2>
 
               <p>
-                지역명을 누르면 해당 지역 타일
-                수리·보수 안내 페이지로 이동합니다.
+                지역명을 누르면 해당 지역
+                타일 수리·보수 안내 페이지로
+                이동합니다.
               </p>
             </div>
 
             <div className="home-region-groups">
+              {/* 서울 */}
+
               <article className="home-region-card">
                 <div className="home-region-card-top">
                   <div>
@@ -482,7 +528,9 @@ export default function Home() {
                       SEOUL
                     </span>
 
-                    <h3>서울 전 지역</h3>
+                    <h3>
+                      서울 전 지역
+                    </h3>
 
                     <p>
                       서울 25개 구 타일 수리·보수
@@ -509,6 +557,8 @@ export default function Home() {
                 </div>
               </article>
 
+              {/* 경기 */}
+
               <article className="home-region-card">
                 <div className="home-region-card-top">
                   <div>
@@ -516,7 +566,9 @@ export default function Home() {
                       GYEONGGI
                     </span>
 
-                    <h3>경기 주요 지역</h3>
+                    <h3>
+                      경기 주요 지역
+                    </h3>
 
                     <p>
                       김포·고양·부천 등 주요 지역
@@ -543,6 +595,8 @@ export default function Home() {
                 </div>
               </article>
 
+              {/* 인천 */}
+
               <article className="home-region-card">
                 <div className="home-region-card-top">
                   <div>
@@ -550,7 +604,9 @@ export default function Home() {
                       INCHEON
                     </span>
 
-                    <h3>인천 전 지역</h3>
+                    <h3>
+                      인천 전 지역
+                    </h3>
 
                     <p>
                       인천 10개 군·구 타일 수리·보수
@@ -580,7 +636,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PHOTO CONSULT */}
+        {/* PHOTO */}
 
         <section className="photo-consult-section">
           <div className="container photo-consult-inner">
@@ -596,13 +652,16 @@ export default function Home() {
               </h2>
 
               <p>
-                작업 지역과 타일 상태가 잘 보이는 사진을
-                문자로 보내주시면 확인 후 상담해드립니다.
+                작업 지역과 타일 상태가 잘 보이는
+                사진을 문자로 보내주시면
+                확인 후 상담해드립니다.
               </p>
             </div>
 
             <div className="photo-consult-card">
-              <span>사진 문자 상담</span>
+              <span>
+                사진 문자 상담
+              </span>
 
               <strong>
                 {PHONE_DISPLAY}
@@ -627,7 +686,9 @@ export default function Home() {
         >
           <div className="container contact-new-inner">
             <div>
-              <span>금손종합보수</span>
+              <span>
+                금손종합보수
+              </span>
 
               <h2>
                 타일 수리·보수

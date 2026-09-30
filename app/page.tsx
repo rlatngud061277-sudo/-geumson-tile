@@ -48,9 +48,13 @@ export const metadata: Metadata = {
     "타일부분수리",
     "타일부분교체",
     "벽타일수리",
+    "벽타일보수",
     "바닥타일수리",
+    "바닥타일보수",
     "욕실타일수리",
-    "화장실타일수리",
+    "욕실타일보수",
+    "타일마감보수",
+    "샤워부스타일보수",
     "서울타일수리",
     "인천타일수리",
     "경기타일수리",
@@ -116,7 +120,7 @@ const beforeAfter = [
   /* 01 */
   {
     title: "욕실 벽타일 부분교체",
-    desc: "깨진 욕실 벽타일을 철거하고 부분 교체한 현장",
+    desc: "깨진 욕실 벽타일을 철거하고 기존 타일과 자연스럽게 맞춰 부분 교체한 현장입니다.",
     before: "/IMG_1176.jpeg",
     after: "/IMG_1179.jpeg",
     beforeAlt: "욕실 벽타일 파손 시공 전",
@@ -126,7 +130,7 @@ const beforeAfter = [
   /* 02 */
   {
     title: "거실 벽타일 복원",
-    desc: "기존 벽타일 손상 부위를 정리한 뒤 새 타일로 복원한 현장",
+    desc: "손상된 벽타일 부위를 정리한 뒤 새 타일을 맞춰 복원한 현장입니다.",
     before: "/IMG_1178.jpeg",
     after: "/IMG_1175.jpeg",
     beforeAlt: "거실 벽타일 복원 시공 전",
@@ -136,41 +140,41 @@ const beforeAfter = [
   /* 03 */
   {
     title: "욕실 바닥·코너 보수",
-    desc: "기존 바닥 타일 철거 후 욕실 바닥과 코너를 깔끔하게 보수한 현장",
+    desc: "기존 욕실 바닥 타일을 철거한 뒤 바닥과 코너 부분을 깔끔하게 보수한 현장입니다.",
     before: "/IMG_1183.jpeg",
     after: "/IMG_1184.jpeg",
     beforeAlt: "욕실 바닥 코너 보수 시공 전",
     afterAlt: "욕실 바닥 코너 보수 시공 후",
   },
 
-  /* 04 - 새 사진 */
+  /* 04 */
   {
-    title: "욕실 타일 코너 마감 보수",
-    desc: "파손되고 벌어진 욕실 타일 코너 부분을 정리하고 마감한 현장",
-    before: "/IMG_1181(1).jpeg",
-    after: "/IMG_1182(2).jpeg",
-    beforeAlt: "욕실 타일 코너 파손 시공 전",
-    afterAlt: "욕실 타일 코너 마감 보수 시공 후",
+    title: "욕실 타일 마감보수",
+    desc: "욕실 코너 부분의 손상되고 벌어진 마감을 정리해 깔끔하게 보수한 현장입니다.",
+    before: "/IMG_1181.jpeg",
+    after: "/IMG_1182.jpeg",
+    beforeAlt: "욕실 타일 마감보수 시공 전",
+    afterAlt: "욕실 타일 마감보수 시공 후",
   },
 
-  /* 05 - 새 사진 */
+  /* 05 */
   {
-    title: "샤워부스 주변 타일 마감 보수",
-    desc: "샤워부스 프레임 옆 벌어진 부분과 타일 주변 마감을 정리한 현장",
+    title: "샤워부스 주변 타일 마감보수",
+    desc: "샤워부스 프레임 주변의 손상된 타일과 마감 부위를 정리해 보수한 현장입니다.",
     before: "/IMG_1180.jpeg",
-    after: "/IMG_1177(1).jpeg",
-    beforeAlt: "샤워부스 주변 타일 마감 시공 전",
-    afterAlt: "샤워부스 주변 타일 마감 시공 후",
+    after: "/IMG_1177.jpeg",
+    beforeAlt: "샤워부스 주변 타일 마감보수 시공 전",
+    afterAlt: "샤워부스 주변 타일 마감보수 시공 후",
   },
 
-  /* 06 - 새 사진 */
+  /* 06 */
   {
-    title: "벽타일 부분교체·수평 시공",
-    desc: "기존 벽타일을 부분 철거한 뒤 수평을 맞춰 새 타일을 시공한 현장",
-    before: "/IMG_1187(2).jpeg",
-    after: "/IMG_1188(1).jpeg",
-    beforeAlt: "벽타일 부분교체 시공 전",
-    afterAlt: "벽타일 부분교체 수평 시공 후",
+    title: "벽타일 부분교체·수평시공",
+    desc: "기존 벽타일을 부분 철거한 뒤 수평을 확인하며 새 타일을 맞춰 시공한 현장입니다.",
+    before: "/IMG_1187.jpeg",
+    after: "/IMG_1188.jpeg",
+    beforeAlt: "벽타일 부분교체 수평시공 시공 전",
+    afterAlt: "벽타일 부분교체 수평시공 시공 후",
   },
 ];
 
@@ -272,6 +276,8 @@ export default function Home() {
       "타일 부분보수",
       "타일 부분교체",
       "타일 부분복원",
+      "욕실 타일 마감보수",
+      "샤워부스 주변 타일 보수",
     ],
   };
 
@@ -421,8 +427,7 @@ export default function Home() {
 
               <p>
                 불필요한 전체 철거보다 현장 상태에
-                맞는 부분 수리와 부분 교체를
-                우선합니다.
+                맞는 부분 수리와 부분 교체를 우선합니다.
               </p>
             </div>
 
@@ -445,9 +450,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* =====================================
-            BEFORE & AFTER
-        ====================================== */}
+        {/* =========================================
+            실제 시공 전후
+        ========================================= */}
 
         <section
           id="case"
@@ -464,8 +469,8 @@ export default function Home() {
               </h2>
 
               <p>
-                시공 전과 시공 후 모습을
-                한눈에 비교해보세요.
+                실제 타일 수리·보수 현장의
+                시공 전과 시공 후 모습을 비교해보세요.
               </p>
             </div>
 
@@ -491,296 +496,4 @@ export default function Home() {
 
                     {/* 시공 후 */}
 
-                    <div className="before-after-image-box">
-                      <img
-                        src={item.after}
-                        alt={item.afterAlt}
-                      />
-
-                      <span className="after-label">
-                        시공 후
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="before-after-content">
-                    <span>
-                      금손종합보수 시공사례
-                    </span>
-
-                    <h3>
-                      {item.title}
-                    </h3>
-
-                    <p>
-                      {item.desc}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* REGION */}
-
-        <section
-          id="region"
-          className="home-region-section"
-        >
-          <div className="container">
-            <div className="section-head">
-              <div className="eyebrow">
-                SERVICE AREA
-              </div>
-
-              <h2>
-                지역별 타일 수리·보수
-              </h2>
-
-              <p>
-                지역명을 누르면 해당 지역
-                타일 수리·보수 안내 페이지로 이동합니다.
-              </p>
-            </div>
-
-            <div className="home-region-groups">
-              {/* 서울 */}
-
-              <article className="home-region-card">
-                <div className="home-region-card-top">
-                  <div>
-                    <span className="home-region-en">
-                      SEOUL
-                    </span>
-
-                    <h3>
-                      서울 전 지역
-                    </h3>
-
-                    <p>
-                      서울 25개 구 타일 수리·보수
-                    </p>
-                  </div>
-
-                  <Link
-                    href="/services/tile/seoul"
-                    className="home-region-all"
-                  >
-                    전체보기
-                  </Link>
-                </div>
-
-                <div className="home-region-links">
-                  {seoulDistricts.map((item) => (
-                    <Link
-                      key={item.slug}
-                      href={`/services/tile/seoul/${item.slug}`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </article>
-
-              {/* 경기 */}
-
-              <article className="home-region-card">
-                <div className="home-region-card-top">
-                  <div>
-                    <span className="home-region-en">
-                      GYEONGGI
-                    </span>
-
-                    <h3>
-                      경기 주요 지역
-                    </h3>
-
-                    <p>
-                      김포·고양·부천 등 주요 지역
-                    </p>
-                  </div>
-
-                  <Link
-                    href="/services/tile/gyeonggi"
-                    className="home-region-all"
-                  >
-                    전체보기
-                  </Link>
-                </div>
-
-                <div className="home-region-links">
-                  {gyeonggiDistricts.map((item) => (
-                    <Link
-                      key={item.slug}
-                      href={`/services/tile/gyeonggi/${item.slug}`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </article>
-
-              {/* 인천 */}
-
-              <article className="home-region-card">
-                <div className="home-region-card-top">
-                  <div>
-                    <span className="home-region-en">
-                      INCHEON
-                    </span>
-
-                    <h3>
-                      인천 전 지역
-                    </h3>
-
-                    <p>
-                      인천 10개 군·구 타일 수리·보수
-                    </p>
-                  </div>
-
-                  <Link
-                    href="/services/tile/incheon"
-                    className="home-region-all"
-                  >
-                    전체보기
-                  </Link>
-                </div>
-
-                <div className="home-region-links">
-                  {incheonDistricts.map((item) => (
-                    <Link
-                      key={item.slug}
-                      href={`/services/tile/incheon/${item.slug}`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* PHOTO CONSULT */}
-
-        <section className="photo-consult-section">
-          <div className="container photo-consult-inner">
-            <div>
-              <div className="eyebrow">
-                PHOTO CONSULT
-              </div>
-
-              <h2>
-                파손된 타일 사진을
-                <br />
-                보내주세요
-              </h2>
-
-              <p>
-                작업 지역과 타일 상태가 잘 보이는
-                사진을 문자로 보내주시면
-                확인 후 상담해드립니다.
-              </p>
-            </div>
-
-            <div className="photo-consult-card">
-              <span>
-                사진 문자 상담
-              </span>
-
-              <strong>
-                {PHONE_DISPLAY}
-              </strong>
-
-              <p>
-                지역 + 작업 내용 + 사진
-              </p>
-
-              <a href={SMS_LINK}>
-                문자로 사진 보내기
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* CONTACT */}
-
-        <section
-          id="contact"
-          className="contact-section-new"
-        >
-          <div className="container contact-new-inner">
-            <div>
-              <span>
-                금손종합보수
-              </span>
-
-              <h2>
-                타일 수리·보수
-                <br />
-                편하게 문의하세요
-              </h2>
-
-              <p>
-                서울 · 인천 · 경기 주요 지역 출장
-              </p>
-            </div>
-
-            <div className="contact-new-buttons">
-              <a href={PHONE_LINK}>
-                전화 상담
-              </a>
-
-              <a href={SMS_LINK}>
-                문자 상담
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* FOOTER */}
-
-        <footer className="footer">
-          <div className="container footer-inner">
-            <div>
-              <div className="footer-company">
-                금손종합보수
-              </div>
-
-              <div className="footer-text">
-                대표자 김영호
-              </div>
-
-              <div className="footer-text">
-                타일 수리 · 보수 · 부분교체
-              </div>
-            </div>
-
-            <div className="footer-right">
-              <a href={PHONE_LINK}>
-                {PHONE_DISPLAY}
-              </a>
-
-              <div className="footer-text">
-                서울 · 인천 · 경기 주요 지역
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        {/* MOBILE */}
-
-        <div className="clean-mobile-actions">
-          <a href={PHONE_LINK}>
-            전화 상담
-          </a>
-
-          <a href={SMS_LINK}>
-            문자 상담
-          </a>
-        </div>
-      </main>
-    </>
-  );
-}
+                    <div className="

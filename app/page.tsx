@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "금손종합보수는 서울 전 지역, 인천, 김포, 고양, 부천, 파주, 시흥, 광명, 안산, 안양, 군포 지역의 벽타일·바닥타일 부분 수리, 보수, 교체, 복원 전문업체입니다.",
+    "금손종합보수는 서울 전 지역, 인천 및 경기 주요 지역의 벽타일·바닥타일 부분 수리, 보수, 교체, 복원 상담을 진행합니다.",
 
   keywords: [
     "금손종합보수",
@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     "타일교체",
     "타일복원",
     "타일부분수리",
-    "타일부분보수",
     "타일부분교체",
     "벽타일수리",
     "바닥타일수리",
@@ -68,10 +67,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title:
-      "금손종합보수 | 타일 수리·보수·부분교체 전문",
+    title: "금손종합보수 | 타일 수리·보수·부분교체",
     description:
-      "서울 전 지역·인천·경기 주요 지역 벽타일·바닥타일 부분수리, 보수, 교체, 복원 상담.",
+      "서울·인천·경기 주요 지역 벽타일·바닥타일 부분수리, 보수, 교체 상담.",
     url: SITE_URL,
     siteName: COMPANY,
     locale: "ko_KR",
@@ -92,22 +90,22 @@ const services = [
   {
     number: "01",
     title: "타일 수리 · 보수",
-    desc: "깨짐, 균열, 들뜸, 탈락 등 벽타일·바닥타일의 손상 부위를 확인해 필요한 부분 위주로 수리·보수합니다.",
+    desc: "깨짐, 균열, 들뜸, 탈락 등 벽타일과 바닥타일의 손상 상태를 확인해 필요한 부분 위주로 작업합니다.",
   },
   {
     number: "02",
     title: "타일 부분 교체",
-    desc: "전체 철거가 필요하지 않은 경우 파손된 타일만 선별해 부분 교체합니다.",
+    desc: "전체 철거가 필요하지 않은 현장은 파손된 타일만 선별해 부분 교체를 진행합니다.",
   },
   {
     number: "03",
     title: "타일 부분 복원",
-    desc: "기존 타일과 최대한 자연스럽게 연결될 수 있도록 현장 상태에 맞춰 복원합니다.",
+    desc: "기존 타일과 최대한 자연스럽게 이어질 수 있도록 현장 상태에 맞춰 보수합니다.",
   },
 ];
 
 /* =========================================
-   공간
+   작업 공간
 ========================================= */
 
 const spaces = [
@@ -138,7 +136,7 @@ const spaces = [
 ];
 
 /* =========================================
-   지역
+   서울
 ========================================= */
 
 const seoulDistricts = [
@@ -169,6 +167,10 @@ const seoulDistricts = [
   { name: "중랑구", slug: "jungnang" },
 ];
 
+/* =========================================
+   경기
+========================================= */
+
 const gyeonggiDistricts = [
   { name: "김포", slug: "gimpo" },
   { name: "고양", slug: "goyang" },
@@ -180,6 +182,10 @@ const gyeonggiDistricts = [
   { name: "안양", slug: "anyang" },
   { name: "군포", slug: "gunpo" },
 ];
+
+/* =========================================
+   인천
+========================================= */
 
 const incheonDistricts = [
   { name: "중구", slug: "jung" },
@@ -195,7 +201,7 @@ const incheonDistricts = [
 ];
 
 /* =========================================
-   메인
+   PAGE
 ========================================= */
 
 export default function Home() {
@@ -206,8 +212,7 @@ export default function Home() {
     url: SITE_URL,
     telephone: PHONE_DISPLAY,
     founder: OWNER,
-    description:
-      "서울·인천·경기 주요 지역 벽타일·바닥타일 부분수리, 보수, 교체, 복원 전문업체",
+
     areaServed: [
       "서울특별시",
       "인천광역시",
@@ -221,17 +226,13 @@ export default function Home() {
       "안양",
       "군포",
     ],
+
     serviceType: [
       "벽타일 수리",
       "바닥타일 수리",
       "타일 부분보수",
       "타일 부분교체",
       "타일 부분복원",
-      "주방 타일",
-      "화장실 타일",
-      "욕실 타일",
-      "거실 타일",
-      "상가 타일",
     ],
   };
 
@@ -246,14 +247,20 @@ export default function Home() {
 
       <main>
         {/* HEADER */}
+
         <header className="header">
           <div className="container header-inner">
             <Link href="/" className="brand">
               <div className="brand-mark">◆</div>
 
               <div>
-                <div className="brand-name">금손종합보수</div>
-                <div className="brand-sub">TILE REPAIR</div>
+                <div className="brand-name">
+                  금손종합보수
+                </div>
+
+                <div className="brand-sub">
+                  TILE REPAIR
+                </div>
               </div>
             </Link>
 
@@ -265,11 +272,17 @@ export default function Home() {
             </nav>
 
             <div className="header-actions">
-              <a href={SMS_LINK} className="header-sms">
+              <a
+                href={SMS_LINK}
+                className="header-sms"
+              >
                 문자 상담
               </a>
 
-              <a href={PHONE_LINK} className="call-button">
+              <a
+                href={PHONE_LINK}
+                className="call-button"
+              >
                 전화 상담
               </a>
             </div>
@@ -277,27 +290,28 @@ export default function Home() {
         </header>
 
         {/* HERO */}
+
         <section className="hero">
           <div className="container hero-inner">
             <div className="hero-content">
               <div className="hero-badge">
-                타일 수리 · 보수 · 부분교체 전문
+                타일 수리 · 보수 · 부분교체
               </div>
 
               <h1>
-                벽타일 · 바닥타일
-                <br />
                 필요한 부분만
                 <br />
                 깔끔하게
+                <br />
+                타일 보수
               </h1>
 
               <p className="hero-description">
-                깨짐, 균열, 들뜸, 탈락 등
+                벽타일·바닥타일의 깨짐, 균열,
+                들뜸, 탈락 등
                 <br />
-                전체 철거가 필요하지 않은 현장은
-                <br />
-                필요한 범위 위주로 작업합니다.
+                현장 상태에 맞춰 필요한 범위를
+                수리·보수·교체합니다.
               </p>
 
               <div className="keyword-list">
@@ -312,14 +326,14 @@ export default function Home() {
                   href={PHONE_LINK}
                   className="primary-button"
                 >
-                  📞 전화 상담
+                  전화 상담
                 </a>
 
                 <a
                   href={SMS_LINK}
                   className="sms-button"
                 >
-                  💬 사진 문자 상담
+                  사진 문자 상담
                 </a>
               </div>
             </div>
@@ -340,7 +354,11 @@ export default function Home() {
         </section>
 
         {/* SERVICE */}
-        <section id="service" className="section">
+
+        <section
+          id="service"
+          className="section"
+        >
           <div className="container">
             <div className="section-head">
               <div className="eyebrow">
@@ -348,20 +366,21 @@ export default function Home() {
               </div>
 
               <h2>
-                타일 전문 시공 서비스
+                타일 수리·보수 서비스
               </h2>
 
               <p>
-                현장 상태를 확인한 뒤 불필요한 전체 철거 없이
-                필요한 부분 위주로 작업합니다.
+                불필요한 전체 철거보다 현장 상태에
+                맞는 부분 수리와 부분 교체를
+                우선합니다.
               </p>
             </div>
 
             <div className="service-grid">
               {services.map((service) => (
-                <div
-                  className="service-card"
+                <article
                   key={service.title}
+                  className="service-card"
                 >
                   <div className="service-number">
                     {service.number}
@@ -370,20 +389,23 @@ export default function Home() {
                   <h3>{service.title}</h3>
 
                   <p>{service.desc}</p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
         {/* SPACE */}
+
         <section
           id="space"
-          className="clean-section clean-soft-section"
+          className="home-space-section"
         >
-          <div className="clean-area-container">
-            <div className="clean-section-heading center">
-              <span>작업 공간</span>
+          <div className="container">
+            <div className="section-head">
+              <div className="eyebrow">
+                WORK SPACE
+              </div>
 
               <h2>
                 다양한 공간의
@@ -392,45 +414,53 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="clean-space-grid">
+            <div className="home-space-grid">
               {spaces.map((space) => (
                 <div
                   key={space.title}
-                  className="clean-space-item"
+                  className="home-space-card"
                 >
-                  <div>{space.title}</div>
-                  <span>{space.desc}</span>
+                  <div className="home-space-pattern" />
+
+                  <div className="home-space-content">
+                    <h3>{space.title}</h3>
+                    <p>{space.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* =====================================
-            REGION CATEGORY
-        ====================================== */}
+        {/* REGION */}
 
-        <section id="region" className="home-region-section">
-          <div className="home-region-container">
-            <div className="home-region-head">
-              <span>출장 지역</span>
+        <section
+          id="region"
+          className="home-region-section"
+        >
+          <div className="container">
+            <div className="section-head">
+              <div className="eyebrow">
+                SERVICE AREA
+              </div>
 
               <h2>
                 지역별 타일 수리·보수
               </h2>
 
               <p>
-                서울 전 지역과 인천, 경기 주요 지역에서
-                타일 수리·보수·부분교체 상담을 진행합니다.
+                지역명을 누르면 해당 지역 타일
+                수리·보수 안내 페이지로 이동합니다.
               </p>
             </div>
 
             <div className="home-region-groups">
               {/* 서울 */}
-              <div className="home-region-group">
-                <div className="home-region-top">
+
+              <article className="home-region-card">
+                <div className="home-region-card-top">
                   <div>
-                    <span className="home-region-label">
+                    <span className="home-region-en">
                       SEOUL
                     </span>
 
@@ -443,7 +473,7 @@ export default function Home() {
 
                   <Link
                     href="/services/tile/seoul"
-                    className="home-region-view"
+                    className="home-region-all"
                   >
                     전체보기
                   </Link>
@@ -459,13 +489,14 @@ export default function Home() {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </article>
 
               {/* 경기 */}
-              <div className="home-region-group">
-                <div className="home-region-top">
+
+              <article className="home-region-card">
+                <div className="home-region-card-top">
                   <div>
-                    <span className="home-region-label">
+                    <span className="home-region-en">
                       GYEONGGI
                     </span>
 
@@ -478,7 +509,7 @@ export default function Home() {
 
                   <Link
                     href="/services/tile/gyeonggi"
-                    className="home-region-view"
+                    className="home-region-all"
                   >
                     전체보기
                   </Link>
@@ -494,13 +525,14 @@ export default function Home() {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </article>
 
               {/* 인천 */}
-              <div className="home-region-group">
-                <div className="home-region-top">
+
+              <article className="home-region-card">
+                <div className="home-region-card-top">
                   <div>
-                    <span className="home-region-label">
+                    <span className="home-region-en">
                       INCHEON
                     </span>
 
@@ -513,7 +545,7 @@ export default function Home() {
 
                   <Link
                     href="/services/tile/incheon"
-                    className="home-region-view"
+                    className="home-region-all"
                   >
                     전체보기
                   </Link>
@@ -529,18 +561,19 @@ export default function Home() {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>
 
         {/* PHOTO CONSULT */}
-        <section className="clean-photo-section">
-          <div className="clean-area-container clean-photo-inner">
+
+        <section className="photo-consult-section">
+          <div className="container photo-consult-inner">
             <div>
-              <span className="clean-photo-label">
-                사진 문자 상담
-              </span>
+              <div className="eyebrow">
+                PHOTO CONSULT
+              </div>
 
               <h2>
                 파손된 타일 사진을
@@ -549,19 +582,22 @@ export default function Home() {
               </h2>
 
               <p>
-                작업 지역과 타일 상태가 보이는 사진을
-                보내주시면
-                <br className="desktop-br" />
-                확인 후 상담을 도와드립니다.
+                작업 지역과 타일 상태가 잘 보이는
+                사진을 문자로 보내주시면
+                확인 후 상담해드립니다.
               </p>
             </div>
 
-            <div className="clean-photo-card">
-              <strong>{PHONE_DISPLAY}</strong>
+            <div className="photo-consult-card">
+              <span>사진 문자 상담</span>
 
-              <span>
-                지역 + 작업내용 + 사진
-              </span>
+              <strong>
+                {PHONE_DISPLAY}
+              </strong>
+
+              <p>
+                지역 + 작업 내용 + 사진
+              </p>
 
               <a href={SMS_LINK}>
                 문자로 사진 보내기
@@ -571,10 +607,16 @@ export default function Home() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="clean-bottom-cta">
-          <div className="clean-area-container clean-bottom-inner">
+
+        <section
+          id="contact"
+          className="contact-section-new"
+        >
+          <div className="container contact-new-inner">
             <div>
-              <span>금손종합보수</span>
+              <span>
+                금손종합보수
+              </span>
 
               <h2>
                 타일 수리·보수
@@ -587,7 +629,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="clean-bottom-buttons">
+            <div className="contact-new-buttons">
               <a href={PHONE_LINK}>
                 전화 상담
               </a>
@@ -600,6 +642,7 @@ export default function Home() {
         </section>
 
         {/* FOOTER */}
+
         <footer className="footer">
           <div className="container footer-inner">
             <div>
@@ -612,7 +655,7 @@ export default function Home() {
               </div>
 
               <div className="footer-text">
-                타일 수리 · 보수 · 교체 · 복원 전문
+                타일 수리 · 보수 · 부분교체
               </div>
             </div>
 
@@ -622,13 +665,14 @@ export default function Home() {
               </a>
 
               <div className="footer-text">
-                서울 · 인천 · 경기 주요 지역 출장
+                서울 · 인천 · 경기 주요 지역
               </div>
             </div>
           </div>
         </footer>
 
-        {/* MOBILE */}
+        {/* MOBILE FIXED */}
+
         <div className="clean-mobile-actions">
           <a href={PHONE_LINK}>
             전화 상담

@@ -49,8 +49,11 @@ export const metadata: Metadata = {
     "타일부분교체",
     "벽타일수리",
     "바닥타일수리",
+    "욕실타일수리",
+    "화장실타일수리",
     "서울타일수리",
     "인천타일수리",
+    "경기타일수리",
     "김포타일수리",
     "고양타일수리",
     "부천타일수리",
@@ -106,10 +109,11 @@ const services = [
 ];
 
 /* =========================================
-   시공 전후
+   실제 시공 전후
 ========================================= */
 
 const beforeAfter = [
+  /* 01 */
   {
     title: "욕실 벽타일 부분교체",
     desc: "깨진 욕실 벽타일을 철거하고 부분 교체한 현장",
@@ -119,27 +123,54 @@ const beforeAfter = [
     afterAlt: "욕실 벽타일 부분교체 시공 후",
   },
 
+  /* 02 */
   {
     title: "거실 벽타일 복원",
-    desc: "기존 타일 철거 후 벽면 타일을 다시 복원한 현장",
+    desc: "기존 벽타일 손상 부위를 정리한 뒤 새 타일로 복원한 현장",
     before: "/IMG_1178.jpeg",
     after: "/IMG_1175.jpeg",
-    beforeAlt: "거실 벽타일 철거 시공 전",
+    beforeAlt: "거실 벽타일 복원 시공 전",
     afterAlt: "거실 벽타일 복원 시공 후",
   },
 
+  /* 03 */
   {
     title: "욕실 바닥·코너 보수",
     desc: "기존 바닥 타일 철거 후 욕실 바닥과 코너를 깔끔하게 보수한 현장",
-
-    /* 시공 전 */
     before: "/IMG_1183.jpeg",
-
-    /* 시공 후 */
     after: "/IMG_1184.jpeg",
+    beforeAlt: "욕실 바닥 코너 보수 시공 전",
+    afterAlt: "욕실 바닥 코너 보수 시공 후",
+  },
 
-    beforeAlt: "욕실 바닥 타일 철거 후 시공 전",
-    afterAlt: "욕실 바닥 타일 및 코너 보수 시공 후",
+  /* 04 - 새 사진 */
+  {
+    title: "욕실 타일 코너 마감 보수",
+    desc: "파손되고 벌어진 욕실 타일 코너 부분을 정리하고 마감한 현장",
+    before: "/IMG_1181(1).jpeg",
+    after: "/IMG_1182(2).jpeg",
+    beforeAlt: "욕실 타일 코너 파손 시공 전",
+    afterAlt: "욕실 타일 코너 마감 보수 시공 후",
+  },
+
+  /* 05 - 새 사진 */
+  {
+    title: "샤워부스 주변 타일 마감 보수",
+    desc: "샤워부스 프레임 옆 벌어진 부분과 타일 주변 마감을 정리한 현장",
+    before: "/IMG_1180.jpeg",
+    after: "/IMG_1177(1).jpeg",
+    beforeAlt: "샤워부스 주변 타일 마감 시공 전",
+    afterAlt: "샤워부스 주변 타일 마감 시공 후",
+  },
+
+  /* 06 - 새 사진 */
+  {
+    title: "벽타일 부분교체·수평 시공",
+    desc: "기존 벽타일을 부분 철거한 뒤 수평을 맞춰 새 타일을 시공한 현장",
+    before: "/IMG_1187(2).jpeg",
+    after: "/IMG_1188(1).jpeg",
+    beforeAlt: "벽타일 부분교체 시공 전",
+    afterAlt: "벽타일 부분교체 수평 시공 후",
   },
 ];
 
@@ -259,9 +290,7 @@ export default function Home() {
         <header className="header">
           <div className="container header-inner">
             <Link href="/" className="brand">
-              <div className="brand-mark">
-                ◆
-              </div>
+              <div className="brand-mark">◆</div>
 
               <div>
                 <div className="brand-name">
@@ -407,20 +436,18 @@ export default function Home() {
                     {service.number}
                   </div>
 
-                  <h3>
-                    {service.title}
-                  </h3>
+                  <h3>{service.title}</h3>
 
-                  <p>
-                    {service.desc}
-                  </p>
+                  <p>{service.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* BEFORE AFTER */}
+        {/* =====================================
+            BEFORE & AFTER
+        ====================================== */}
 
         <section
           id="case"
@@ -513,8 +540,7 @@ export default function Home() {
 
               <p>
                 지역명을 누르면 해당 지역
-                타일 수리·보수 안내 페이지로
-                이동합니다.
+                타일 수리·보수 안내 페이지로 이동합니다.
               </p>
             </div>
 
@@ -636,7 +662,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PHOTO */}
+        {/* PHOTO CONSULT */}
 
         <section className="photo-consult-section">
           <div className="container photo-consult-inner">

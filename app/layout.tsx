@@ -3,8 +3,6 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 
-import faviconImage from "./D620C268-6E3F-4753-9B36-458DACE14CCC.png";
-
 /* =========================================
    기본 정보
 ========================================= */
@@ -18,6 +16,13 @@ const SITE_TITLE =
 
 const SITE_DESCRIPTION =
   "금손종합보수는 서울·경기·인천 지역의 타일 수리, 타일 보수, 벽타일 부분교체, 바닥타일 보수, 욕실 타일 보수, 상가 타일 보수 작업을 진행합니다.";
+
+/* =========================================
+   파비콘 이미지
+========================================= */
+
+const FAVICON =
+  "/D620C268-6E3F-4753-9B36-458DACE14CCC.png";
 
 /* =========================================
    메타데이터
@@ -59,30 +64,19 @@ export const metadata: Metadata = {
 
   /* =========================================
      파비콘
-     파일명 변경 필요 없음
   ========================================= */
 
   icons: {
     icon: [
       {
-        url: faviconImage.src,
+        url: FAVICON,
         type: "image/png",
       },
     ],
 
-    shortcut: [
-      {
-        url: faviconImage.src,
-        type: "image/png",
-      },
-    ],
+    shortcut: FAVICON,
 
-    apple: [
-      {
-        url: faviconImage.src,
-        type: "image/png",
-      },
-    ],
+    apple: FAVICON,
   },
 
   /* =========================================
@@ -98,11 +92,8 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-
     locale: "ko_KR",
-
     url: SITE_URL,
-
     siteName: SITE_NAME,
 
     title:
@@ -134,9 +125,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

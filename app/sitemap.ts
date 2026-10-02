@@ -1,12 +1,26 @@
 import type { MetadataRoute } from "next";
 
+/* =========================================
+   기본 주소
+========================================= */
+
 const SITE_URL = "https://www.geumsontile.com";
+
+/* =========================================
+   카테고리
+========================================= */
+
+const CATEGORIES = [
+  "repair",
+  "maintenance",
+  "replacement",
+];
 
 /* =========================================
    서울 25개 구
 ========================================= */
 
-const SEOUL_DISTRICTS = [
+const SEOUL = [
   "gangnam",
   "gangdong",
   "gangbuk",
@@ -35,10 +49,10 @@ const SEOUL_DISTRICTS = [
 ];
 
 /* =========================================
-   경기 주요 지역
+   경기 9개
 ========================================= */
 
-const GYEONGGI_DISTRICTS = [
+const GYEONGGI = [
   "gimpo",
   "goyang",
   "bucheon",
@@ -51,10 +65,10 @@ const GYEONGGI_DISTRICTS = [
 ];
 
 /* =========================================
-   인천 10개 군·구
+   인천 10개
 ========================================= */
 
-const INCHEON_DISTRICTS = [
+const INCHEON = [
   "jung",
   "dong",
   "michuhol",
@@ -68,13 +82,17 @@ const INCHEON_DISTRICTS = [
 ];
 
 /* =========================================
-   사이트맵
+   SITEMAP
 ========================================= */
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const staticPages: MetadataRoute.Sitemap = [
+  const urls: MetadataRoute.Sitemap = [
+    /* =====================================
+       메인
+    ===================================== */
+
     {
       url: SITE_URL,
       lastModified: now,
@@ -82,75 +100,135 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
 
+    /* =====================================
+       기본 타일 페이지
+    ===================================== */
+
     {
       url: `${SITE_URL}/services/tile`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.95,
+      priority: 0.9,
     },
 
     {
       url: `${SITE_URL}/services/tile/seoul`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${SITE_URL}/services/tile/incheon`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.85,
     },
 
     {
       url: `${SITE_URL}/services/tile/gyeonggi`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.85,
+    },
+
+    {
+      url: `${SITE_URL}/services/tile/incheon`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
   ];
 
   /* =========================================
-     서울 지역 페이지
+     기존 서울 지역페이지
   ========================================= */
 
-  const seoulPages: MetadataRoute.Sitemap =
-    SEOUL_DISTRICTS.map((district) => ({
-      url: `${SITE_URL}/services/tile/seoul/${district}`,
+  SEOUL.forEach((district) => {
+    urls.push({
+      url:
+        `${SITE_URL}/services/tile/seoul/${district}`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
-    }));
+      priority: 0.8,
+    });
+  });
 
   /* =========================================
-     경기 지역 페이지
+     기존 경기 지역페이지
   ========================================= */
 
-  const gyeonggiPages: MetadataRoute.Sitemap =
-    GYEONGGI_DISTRICTS.map((district) => ({
-      url: `${SITE_URL}/services/tile/gyeonggi/${district}`,
+  GYEONGGI.forEach((district) => {
+    urls.push({
+      url:
+        `${SITE_URL}/services/tile/gyeonggi/${district}`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
-    }));
+      priority: 0.8,
+    });
+  });
 
   /* =========================================
-     인천 지역 페이지
+     기존 인천 지역페이지
   ========================================= */
 
-  const incheonPages: MetadataRoute.Sitemap =
-    INCHEON_DISTRICTS.map((district) => ({
-      url: `${SITE_URL}/services/tile/incheon/${district}`,
+  INCHEON.forEach((district) => {
+    urls.push({
+      url:
+        `${SITE_URL}/services/tile/incheon/${district}`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
-    }));
+      priority: 0.8,
+    });
+  });
 
-  return [
-    ...staticPages,
-    ...seoulPages,
-    ...gyeonggiPages,
-    ...incheonPages,
-  ];
+  /* =========================================
+     신규
+     타일수리 / 타일보수 / 타일교체
+
+     서울
+  ========================================= */
+
+  CATEGORIES.forEach((category) => {
+    SEOUL.forEach((district) => {
+      urls.push({
+        url:
+          `${SITE_URL}/services/tile/${category}/seoul/${district}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.85,
+      });
+    });
+  });
+
+  /* =========================================
+     신규 카테고리
+
+     경기
+  ========================================= */
+
+  CATEGORIES.forEach((category) => {
+    GYEONGGI.forEach((district) => {
+      urls.push({
+        url:
+          `${SITE_URL}/services/tile/${category}/gyeonggi/${district}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.85,
+      });
+    });
+  });
+
+  /* =========================================
+     신규 카테고리
+
+     인천
+  ========================================= */
+
+  CATEGORIES.forEach((category) => {
+    INCHEON.forEach((district) => {
+      urls.push({
+        url:
+          `${SITE_URL}/services/tile/${category}/incheon/${district}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.85,
+      });
+    });
+  });
+
+  return urls;
 }

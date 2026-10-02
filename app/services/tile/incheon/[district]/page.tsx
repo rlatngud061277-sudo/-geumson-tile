@@ -32,6 +32,30 @@ const DISTRICTS: Record<string, string> = {
   ongjin: "옹진군",
 };
 
+const REPRESENTATIVE_IMAGES = [
+  "/IMG_1179.jpeg",
+  "/IMG_1175.jpeg",
+  "/IMG_1184.jpeg",
+  "/IMG_1182.jpeg",
+  "/IMG_1177.jpeg",
+  "/IMG_1188.jpeg",
+  "/IMG_1206.jpeg",
+  "/IMG_1190.jpeg",
+  "/IMG_1186.jpeg",
+];
+
+function getRepresentativeImage(district: string) {
+  const keys = Object.keys(DISTRICTS);
+  const index = keys.indexOf(district);
+
+  const image =
+    REPRESENTATIVE_IMAGES[
+      Math.max(index, 0) % REPRESENTATIVE_IMAGES.length
+    ];
+
+  return `${SITE_URL}${image}`;
+}
+
 const beforeAfter = [
   {
     title: "욕실 벽타일 부분교체",
@@ -128,6 +152,12 @@ export async function generateMetadata({
 
   const areaName = `인천 ${districtName}`;
 
+  const pageUrl =
+    `${SITE_URL}/services/tile/incheon/${district}`;
+
+  const representativeImage =
+    getRepresentativeImage(district);
+
   const title =
     `${areaName} 타일교체·타일수리·깨진타일보수 | 금손종합보수`;
 
@@ -153,8 +183,24 @@ export async function generateMetadata({
     ],
 
     alternates: {
-      canonical:
-        `${SITE_URL}/services/tile/incheon/${district}`,
+      canonical: pageUrl,
+    },
+
+    openGraph: {
+      title,
+      description,
+      url: pageUrl,
+      siteName: COMPANY,
+      locale: "ko_KR",
+      type: "website",
+
+      images: [
+        {
+          url: representativeImage,
+          alt:
+            `${areaName} 타일 수리·보수·교체 시공사례`,
+        },
+      ],
     },
 
     robots: {
@@ -179,12 +225,17 @@ export default async function IncheonDistrictPage({
 
   const areaName = `인천 ${districtName}`;
 
+  const representativeImage =
+    getRepresentativeImage(district);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
 
     name:
       `${areaName} 타일교체·타일수리·타일보수`,
+
+    image: representativeImage,
 
     description:
       `${areaName} 깨진 타일 수리, 벽타일 교체, 바닥타일 부분교체 서비스`,
@@ -248,10 +299,7 @@ export default async function IncheonDistrictPage({
         <section className="clean-area-hero">
           <div className="container">
             <div className="clean-area-breadcrumb">
-              <Link href="/">
-                홈
-              </Link>
-
+              <Link href="/">홈</Link>
               <span>›</span>
 
               <Link href="/services/tile">
@@ -282,10 +330,9 @@ export default async function IncheonDistrictPage({
             </h1>
 
             <p>
-              {areaName} 깨진 타일,
-              금이 간 타일, 들뜬 타일,
-              탈락한 타일을 수리하거나 교체합니다.
-              욕실 벽타일·바닥타일과
+              {areaName} 깨진 타일, 금이 간 타일,
+              들뜬 타일, 탈락한 타일을 수리하거나
+              교체합니다. 욕실 벽타일·바닥타일과
               주택·상가 타일 부분교체도 상담 가능합니다.
             </p>
 
@@ -310,20 +357,12 @@ export default async function IncheonDistrictPage({
         <section className="clean-area-section">
           <div className="container">
             <div className="clean-area-section-head">
-              <span>
-                TILE SERVICE
-              </span>
+              <span>TILE SERVICE</span>
 
               <h2>
                 {areaName} 깨진 타일
                 수리·교체
               </h2>
-
-              <p>
-                깨짐·균열·들뜸·파손 상태를 확인해
-                필요한 부분 위주로 수리하거나
-                새 타일로 교체합니다.
-              </p>
             </div>
 
             <div className="clean-area-service-grid">
@@ -369,57 +408,6 @@ export default async function IncheonDistrictPage({
           </div>
         </section>
 
-        <section className="clean-area-section">
-          <div className="container">
-            <div className="clean-area-section-head">
-              <span>
-                REPAIR GUIDE
-              </span>
-
-              <h2>
-                타일 깨짐·들뜸·파손
-                수리 가능합니다
-              </h2>
-            </div>
-
-            <div className="clean-area-service-grid">
-              <article>
-                <h3>
-                  깨진 타일
-                </h3>
-
-                <p>
-                  깨짐이나 균열이 생긴 타일은
-                  상태에 따라 부분 수리 또는
-                  교체합니다.
-                </p>
-              </article>
-
-              <article>
-                <h3>
-                  들뜬 타일
-                </h3>
-
-                <p>
-                  벽이나 바닥에서 들뜨거나
-                  떨어진 타일을 철거 후 재시공합니다.
-                </p>
-              </article>
-
-              <article>
-                <h3>
-                  타일 부분교체
-                </h3>
-
-                <p>
-                  한 장 교체부터 한 면 교체까지
-                  필요한 범위만 작업합니다.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
         <section className="before-after-section">
           <div className="container">
             <div className="section-head">
@@ -433,9 +421,8 @@ export default async function IncheonDistrictPage({
               </h2>
 
               <p>
-                {areaName} 타일 수리·교체 상담 시
-                참고할 수 있는 금손종합보수의
-                실제 시공 전후 사례입니다.
+                타일 수리·교체 상담 시 참고할 수 있는
+                금손종합보수 실제 시공 전후 사례입니다.
               </p>
             </div>
 
@@ -472,7 +459,7 @@ export default async function IncheonDistrictPage({
                   <div className="before-after-content">
                     <span>
                       {areaName} 타일
-                      수리·교체 사례
+                      수리·교체 참고사례
                     </span>
 
                     <h3>
@@ -553,10 +540,6 @@ export default async function IncheonDistrictPage({
 
               <div className="footer-text">
                 대표자 김영호
-              </div>
-
-              <div className="footer-text">
-                깨진 타일 수리 · 교체 · 부분보수
               </div>
             </div>
 

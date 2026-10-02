@@ -31,6 +31,30 @@ const DISTRICTS: Record<string, string> = {
   gunpo: "군포",
 };
 
+const REPRESENTATIVE_IMAGES = [
+  "/IMG_1179.jpeg",
+  "/IMG_1175.jpeg",
+  "/IMG_1184.jpeg",
+  "/IMG_1182.jpeg",
+  "/IMG_1177.jpeg",
+  "/IMG_1188.jpeg",
+  "/IMG_1206.jpeg",
+  "/IMG_1190.jpeg",
+  "/IMG_1186.jpeg",
+];
+
+function getRepresentativeImage(district: string) {
+  const keys = Object.keys(DISTRICTS);
+  const index = keys.indexOf(district);
+
+  const image =
+    REPRESENTATIVE_IMAGES[
+      Math.max(index, 0) % REPRESENTATIVE_IMAGES.length
+    ];
+
+  return `${SITE_URL}${image}`;
+}
+
 const beforeAfter = [
   {
     title: "욕실 벽타일 부분교체",
@@ -125,6 +149,12 @@ export async function generateMetadata({
     return {};
   }
 
+  const pageUrl =
+    `${SITE_URL}/services/tile/gyeonggi/${district}`;
+
+  const representativeImage =
+    getRepresentativeImage(district);
+
   const title =
     `${districtName} 타일교체·타일수리·깨진타일보수 | 금손종합보수`;
 
@@ -150,8 +180,24 @@ export async function generateMetadata({
     ],
 
     alternates: {
-      canonical:
-        `${SITE_URL}/services/tile/gyeonggi/${district}`,
+      canonical: pageUrl,
+    },
+
+    openGraph: {
+      title,
+      description,
+      url: pageUrl,
+      siteName: COMPANY,
+      locale: "ko_KR",
+      type: "website",
+
+      images: [
+        {
+          url: representativeImage,
+          alt:
+            `${districtName} 타일 수리·보수·교체 시공사례`,
+        },
+      ],
     },
 
     robots: {
@@ -174,20 +220,30 @@ export default async function GyeonggiDistrictPage({
     notFound();
   }
 
+  const representativeImage =
+    getRepresentativeImage(district);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
+
     name:
       `${districtName} 타일교체·타일수리·타일보수`,
+
+    image: representativeImage,
+
     description:
       `${districtName} 깨진 타일 수리, 벽타일 교체, 바닥타일 부분교체 서비스`,
+
     provider: {
       "@type": "HomeAndConstructionBusiness",
       name: COMPANY,
       telephone: PHONE_DISPLAY,
       url: SITE_URL,
     },
+
     areaServed: districtName,
+
     serviceType: [
       "깨진 타일 수리",
       "타일 교체",
@@ -238,10 +294,7 @@ export default async function GyeonggiDistrictPage({
         <section className="clean-area-hero">
           <div className="container">
             <div className="clean-area-breadcrumb">
-              <Link href="/">
-                홈
-              </Link>
-
+              <Link href="/">홈</Link>
               <span>›</span>
 
               <Link href="/services/tile">
@@ -272,10 +325,9 @@ export default async function GyeonggiDistrictPage({
             </h1>
 
             <p>
-              {districtName} 깨진 타일과
-              금이 간 타일, 들뜬 타일,
-              탈락한 타일을 수리하거나 교체합니다.
-              욕실·거실·상가 벽타일과
+              {districtName} 깨진 타일과 금이 간 타일,
+              들뜬 타일, 탈락한 타일을 수리하거나
+              교체합니다. 욕실·거실·상가 벽타일과
               바닥타일 부분교체 상담도 가능합니다.
             </p>
 
@@ -300,19 +352,12 @@ export default async function GyeonggiDistrictPage({
         <section className="clean-area-section">
           <div className="container">
             <div className="clean-area-section-head">
-              <span>
-                TILE SERVICE
-              </span>
+              <span>TILE SERVICE</span>
 
               <h2>
                 {districtName} 깨진 타일
                 수리·교체
               </h2>
-
-              <p>
-                파손 상태와 기존 타일 상태를 확인해
-                필요한 부분만 수리하거나 교체합니다.
-              </p>
             </div>
 
             <div className="clean-area-service-grid">
@@ -324,8 +369,8 @@ export default async function GyeonggiDistrictPage({
                 </h3>
 
                 <p>
-                  깨짐, 균열, 모서리 파손 등
-                  손상된 타일을 확인해 보수합니다.
+                  깨짐·균열·파손된 타일을 확인해
+                  필요한 범위를 보수합니다.
                 </p>
               </article>
 
@@ -337,7 +382,7 @@ export default async function GyeonggiDistrictPage({
                 </h3>
 
                 <p>
-                  파손된 타일을 철거하고
+                  파손된 타일만 철거한 뒤
                   새 타일로 부분 교체합니다.
                 </p>
               </article>
@@ -358,58 +403,6 @@ export default async function GyeonggiDistrictPage({
           </div>
         </section>
 
-        <section className="clean-area-section">
-          <div className="container">
-            <div className="clean-area-section-head">
-              <span>
-                REPAIR GUIDE
-              </span>
-
-              <h2>
-                타일 깨짐·파손·들뜸
-                모두 상담 가능합니다
-              </h2>
-            </div>
-
-            <div className="clean-area-service-grid">
-              <article>
-                <h3>
-                  타일 깨짐
-                </h3>
-
-                <p>
-                  충격으로 깨진 타일은
-                  손상 범위를 확인해 수리 또는
-                  부분교체를 진행합니다.
-                </p>
-              </article>
-
-              <article>
-                <h3>
-                  타일 들뜸
-                </h3>
-
-                <p>
-                  들뜨거나 탈락한 타일은
-                  바탕면 상태를 확인한 뒤
-                  다시 시공합니다.
-                </p>
-              </article>
-
-              <article>
-                <h3>
-                  타일 교체
-                </h3>
-
-                <p>
-                  한 장 교체부터 한 면 교체까지
-                  현장 상태에 맞춰 작업합니다.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
         <section className="before-after-section">
           <div className="container">
             <div className="section-head">
@@ -423,9 +416,8 @@ export default async function GyeonggiDistrictPage({
               </h2>
 
               <p>
-                {districtName} 타일 수리·교체 상담 시
-                참고할 수 있는 금손종합보수의
-                실제 시공 전후 사례입니다.
+                타일 수리·교체 상담 시 참고할 수 있는
+                금손종합보수 실제 시공 전후 사례입니다.
               </p>
             </div>
 
@@ -462,7 +454,7 @@ export default async function GyeonggiDistrictPage({
                   <div className="before-after-content">
                     <span>
                       {districtName} 타일
-                      수리·교체 사례
+                      수리·교체 참고사례
                     </span>
 
                     <h3>
@@ -542,10 +534,6 @@ export default async function GyeonggiDistrictPage({
 
               <div className="footer-text">
                 대표자 김영호
-              </div>
-
-              <div className="footer-text">
-                깨진 타일 수리 · 교체 · 보수
               </div>
             </div>
 

@@ -1,34 +1,30 @@
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
+/* =====================================
+   이지종합건설 기본 정보
+===================================== */
 
-import "./globals.css";
+const SITE_URL = "https://easyhomecare.vercel.app";
 
-/* =========================================
-   기본 정보
-========================================= */
-
-const SITE_URL = "https://www.geumsontile.com";
-
-const SITE_NAME = "금손종합보수";
+const SITE_NAME = "이지종합건설";
 
 const SITE_TITLE =
-  "금손종합보수 | 서울·경기·인천 타일 수리·보수·교체";
+  "이지종합건설 | 서울·경기·인천·충남·충북 벌목 전문업체";
 
 const SITE_DESCRIPTION =
-  "금손종합보수는 서울·경기·인천 지역의 타일 수리, 타일 보수, 깨진 타일 교체, 벽타일 부분교체, 바닥타일 보수, 욕실 타일 보수 작업을 진행합니다.";
+  "이지종합건설 공식 홈페이지. 주택 및 건물 주변 벌목, 위험목 제거, 대형 수목 벌목, 토지 및 임야 벌목, 재선충 피해목 제거, 나무뿌리 제거 등 벌목 작업을 상담합니다. 서울·경기·인천·충남·충북 및 그 외 지역 문의 가능합니다.";
 
-/* =========================================
+/* =====================================
    파비콘
-========================================= */
+   public 폴더에 있는 파일 그대로 사용
+===================================== */
 
-const FAVICON_URL =
-  "https://www.geumsontile.com/D620C268-6E3F-4753-9B36-458DACF14CCC.png";
+const FAVICON =
+  "/BA305B39-6F0A-44DB-83A9-8E4E848D358E.png";
 
-/* =========================================
+/* =====================================
    메타데이터
-========================================= */
+===================================== */
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
@@ -38,125 +34,92 @@ export const metadata: Metadata = {
 
   description: SITE_DESCRIPTION,
 
-  keywords: [
-    "금손종합보수",
-    "타일수리",
-    "타일보수",
-    "타일교체",
-    "깨진타일수리",
-    "깨진타일교체",
-    "타일부분교체",
-    "벽타일수리",
-    "벽타일교체",
-    "바닥타일수리",
-    "바닥타일교체",
-    "욕실타일수리",
-    "욕실타일교체",
-    "화장실타일수리",
-    "화장실타일교체",
-    "거실바닥타일수리",
-    "상가바닥타일수리",
-    "서울타일수리",
-    "서울타일교체",
-    "경기타일수리",
-    "경기타일교체",
-    "인천타일수리",
-    "인천타일교체",
-  ],
+  /* 파비콘 */
+  icons: {
+    icon: [
+      {
+        url: FAVICON,
+        type: "image/png",
+      },
+    ],
+
+    shortcut: FAVICON,
+
+    apple: [
+      {
+        url: FAVICON,
+        type: "image/png",
+      },
+    ],
+  },
+
+  /* 네이버 서치어드바이저 */
+  verification: {
+    other: {
+      "naver-site-verification":
+        "51448ea603b683f1fdb4f199f7f7afd4dfdd8950",
+    },
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 
   alternates: {
     canonical: SITE_URL,
   },
 
-  /* =========================================
-     네이버/브라우저 파비콘
-  ========================================= */
-
-  icons: {
-    icon: [
-      {
-        url: FAVICON_URL,
-        type: "image/png",
-      },
-    ],
-
-    shortcut: FAVICON_URL,
-
-    apple: FAVICON_URL,
-  },
-
-  /* =========================================
-     네이버 서치어드바이저
-  ========================================= */
-
-  verification: {
-    other: {
-      "naver-site-verification":
-        "d96d8c809fcd0610fada17e8a15fa352fceaf1bb",
-    },
-  },
-
-  /* =========================================
-     OPEN GRAPH
-  ========================================= */
-
   openGraph: {
     type: "website",
-
-    locale: "ko_KR",
-
     url: SITE_URL,
-
     siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
 
-    title:
-      "금손종합보수 | 타일 수리·보수·교체",
-
-    description:
-      "서울·경기·인천 깨진 타일 수리, 벽타일·바닥타일 부분교체 및 타일보수 전문.",
-  },
-
-  /* =========================================
-     검색엔진 수집 허용
-  ========================================= */
-
-  robots: {
-    index: true,
-    follow: true,
-
-    googleBot: {
-      index: true,
-      follow: true,
-    },
+    images: [
+      {
+        url: FAVICON,
+        width: 1024,
+        height: 1024,
+        alt: "이지종합건설 벌목 전문업체",
+      },
+    ],
   },
 };
 
-/* =========================================
-   ROOT LAYOUT
-========================================= */
+/* =====================================
+   Root Layout
+===================================== */
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
         <link
-          rel="shortcut icon"
-          href={FAVICON_URL}
+          rel="icon"
           type="image/png"
+          href={FAVICON}
         />
 
         <link
-          rel="icon"
-          href={FAVICON_URL}
+          rel="shortcut icon"
           type="image/png"
+          href={FAVICON}
+        />
+
+        <link
+          rel="apple-touch-icon"
+          href={FAVICON}
         />
       </head>
 
-      <body>
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+        }}
+      >
         {children}
       </body>
     </html>

@@ -3,181 +3,117 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-/* =========================================
-   금손종합보수 지역별 SEO
-   디자인 / 지역 URL / 기존 CSS 유지
-========================================= */
+/* 금손종합보수 기본 정보 */
 
-const SITE_URL = "https://www.geumsontile.com";
+const SITE = "https://www.geumsontile.com";
 const COMPANY = "금손종합보수";
-const OWNER = "김영호";
 const PHONE = "01080561990";
-const PHONE_DISPLAY = "010-8056-1990";
-const PHONE_LINK = `tel:${PHONE}`;
+const PHONE_TEXT = "010-8056-1990";
 
-const SMS_MESSAGE =
-  "안녕하세요. 금손종합보수 상담 문의드립니다.\n지역:\n작업 내용:\n타일 상태 사진:";
-const SMS_LINK =
-  `sms:${PHONE}?body=${encodeURIComponent(SMS_MESSAGE)}`;
+/* 서비스 3개 */
 
-/* =========================================
-   서비스별 차별화
-========================================= */
-
-const CATEGORIES = {
+const SERVICES = {
   repair: {
     name: "타일수리",
-    label: "TILE REPAIR",
-    title: "타일 수리",
-    description:
-      "깨지거나 금이 간 타일, 들뜨거나 탈락한 타일의 상태를 확인하고 적절한 수리 방법을 안내합니다.",
-    serviceTitle: "깨짐·균열·들뜸 타일수리",
-    serviceDescription:
-      "손상 범위와 주변 타일의 접착 상태를 살펴 부분 수리 또는 교체가 필요한지 판단합니다.",
-    keywords: [
-      "타일수리",
-      "깨진타일수리",
-      "벽타일수리",
-      "바닥타일수리",
-      "욕실타일수리",
-    ],
-    services: [
+    en: "TILE REPAIR",
+    title: "깨진 타일·들뜬 타일 수리",
+    intro:
+      "깨짐, 균열, 들뜸, 탈락 등 손상된 벽타일과 바닥타일의 상태를 확인하고 적절한 수리 방법을 안내합니다.",
+    items: [
       {
         title: "깨진 타일 수리",
-        desc: "타일 한 장의 깨짐과 균열, 모서리 손상을 확인하고 수리 가능 여부를 상담합니다.",
+        desc: "충격으로 파손되거나 균열이 발생한 타일의 손상 범위와 교체 필요 여부를 확인합니다.",
       },
       {
         title: "들뜬 타일 수리",
-        desc: "타일을 두드렸을 때 빈 소리가 나거나 움직임이 있다면 접착 상태와 주변 손상을 확인합니다.",
+        desc: "타일에서 빈 소리가 나거나 움직이는 경우 접착 상태와 바탕면을 점검합니다.",
       },
       {
         title: "욕실 타일 수리",
-        desc: "욕실 벽과 바닥의 깨짐, 탈락, 균열을 확인하고 방수층에 영향을 주지 않는 작업 범위를 검토합니다.",
+        desc: "욕실 벽과 바닥의 파손 부위, 주변 마감 상태, 방수층 영향 여부를 확인합니다.",
       },
     ],
-    process: [
-      "깨짐·균열·들뜸 상태 확인",
-      "주변 타일과 바탕면 점검",
-      "수리 또는 부분교체 방법 결정",
-      "작업 후 마감 상태 확인",
-    ],
-    imageIds: [1, 7, 8],
-    faqs: [
+    photos: [1, 7, 8],
+    questions: [
       {
-        q: "깨진 타일 한 장도 수리할 수 있나요?",
-        a: "손상된 위치와 타일 상태에 따라 가능합니다. 동일한 타일 확보 여부와 바탕면 상태에 따라 교체가 필요할 수 있습니다.",
+        q: "깨진 타일 한 장만 수리할 수 있나요?",
+        a: "타일 규격과 주변 상태에 따라 부분 수리가 가능합니다. 동일한 타일이 없다면 유사 제품으로 교체해야 할 수도 있습니다.",
       },
       {
-        q: "들뜬 타일을 그대로 사용해도 되나요?",
-        a: "들뜸이 심해지면 탈락이나 파손 위험이 있으므로 현장 상태를 확인하는 것이 좋습니다.",
+        q: "들뜬 타일을 그대로 둬도 되나요?",
+        a: "들뜸이 심해지면 타일이 탈락할 수 있어 상태를 점검하는 것이 좋습니다.",
       },
     ],
   },
-
   maintenance: {
     name: "타일보수",
-    label: "TILE MAINTENANCE",
-    title: "타일 보수",
-    description:
-      "욕실 코너와 타일 마감부, 벽·바닥의 부분적인 손상을 확인하고 필요한 범위의 보수를 상담합니다.",
-    serviceTitle: "타일 부분보수·마감보수",
-    serviceDescription:
-      "전체 면을 교체하기 전에 부분 보수가 가능한지 확인하고 손상된 마감 상태에 맞는 방법을 검토합니다.",
-    keywords: [
-      "타일보수",
-      "타일부분보수",
-      "욕실타일보수",
-      "타일마감보수",
-      "바닥타일보수",
-    ],
-    services: [
+    en: "TILE MAINTENANCE",
+    title: "타일 부분보수·마감보수",
+    intro:
+      "타일 코너, 벽과 바닥 연결부, 부분적인 깨짐과 마감 손상을 확인하고 필요한 범위의 보수를 상담합니다.",
+    items: [
       {
         title: "타일 부분보수",
-        desc: "부분적으로 깨지거나 손상된 타일의 상태를 확인하고 필요한 범위를 보수합니다.",
+        desc: "부분적으로 손상된 타일을 확인하여 전체 철거 없이 보수가 가능한지 검토합니다.",
       },
       {
-        title: "욕실 코너 마감보수",
-        desc: "욕실 코너와 벽·바닥 연결부의 마감 손상, 틈 벌어짐 등을 확인합니다.",
+        title: "욕실 마감보수",
+        desc: "욕실 코너와 샤워부스 주변의 깨짐, 틈 벌어짐, 마감 손상을 확인합니다.",
       },
       {
         title: "바닥타일 보수",
-        desc: "거실·상가·욕실 바닥의 부분 파손과 들뜸을 확인하고 적절한 보수 범위를 결정합니다.",
+        desc: "거실과 상가 바닥의 깨짐 및 들뜸 부위를 확인하고 부분 보수 범위를 결정합니다.",
       },
     ],
-    process: [
-      "손상 위치와 마감 상태 확인",
-      "부분 보수 가능 범위 검토",
-      "필요한 부분의 보수 작업",
-      "주변 타일과 마감 상태 확인",
-    ],
-    imageIds: [2, 3, 4, 7, 8],
-    faqs: [
+    photos: [2, 3, 4, 7, 8],
+    questions: [
       {
-        q: "전체 타일을 철거하지 않고 보수할 수 있나요?",
-        a: "손상이 국소적이고 주변 타일이 안정적이라면 부분 보수가 가능할 수 있습니다.",
+        q: "전체 타일을 철거해야 하나요?",
+        a: "손상된 부분이 작고 주변 타일이 안정적이라면 부분 보수가 가능할 수 있습니다.",
       },
       {
-        q: "타일 보수와 교체는 어떤 차이가 있나요?",
-        a: "보수는 손상된 부분과 마감의 복구에 초점을 두며, 교체는 기존 타일을 제거하고 새 타일을 시공하는 작업입니다.",
+        q: "보수 비용은 어떻게 결정되나요?",
+        a: "손상 면적, 타일 종류, 철거 범위, 현장 접근성과 마감 작업에 따라 달라집니다.",
       },
     ],
   },
-
   replacement: {
     name: "타일교체",
-    label: "TILE REPLACEMENT",
-    title: "타일 교체",
-    description:
-      "깨지거나 들뜬 기존 타일을 제거한 뒤 새 타일을 시공하는 부분교체와 한 면 교체를 상담합니다.",
-    serviceTitle: "벽타일·바닥타일 부분교체",
-    serviceDescription:
-      "타일 한 장부터 욕실 벽 한 면, 거실과 상가 바닥까지 손상 범위에 맞는 교체 방법을 안내합니다.",
-    keywords: [
-      "타일교체",
-      "타일부분교체",
-      "벽타일교체",
-      "바닥타일교체",
-      "욕실타일교체",
-    ],
-    services: [
+    en: "TILE REPLACEMENT",
+    title: "벽타일·바닥타일 부분교체",
+    intro:
+      "기존 타일을 철거하고 새 타일을 시공하는 한 장 교체, 부분교체, 욕실 벽 한 면 교체를 상담합니다.",
+    items: [
       {
         title: "타일 한 장 교체",
-        desc: "깨진 타일을 제거하고 규격과 두께에 맞는 새 타일로 부분교체합니다.",
+        desc: "깨진 타일을 제거하고 규격과 두께가 적합한 새 타일로 교체하는 작업입니다.",
       },
       {
         title: "욕실 벽타일 교체",
-        desc: "벽타일 일부 또는 한 면의 손상 상태를 확인하고 필요한 교체 범위를 결정합니다.",
+        desc: "욕실 벽의 부분 파손 또는 넓은 손상 부위를 확인하고 적절한 교체 범위를 결정합니다.",
       },
       {
-        title: "거실·상가 바닥타일 교체",
-        desc: "바닥타일의 깨짐이나 들뜸을 확인하고 주변 타일과 높이를 맞춰 시공합니다.",
+        title: "바닥타일 교체",
+        desc: "거실, 상가, 욕실 바닥의 손상된 타일을 제거하고 높이와 마감을 맞춰 시공합니다.",
       },
     ],
-    process: [
-      "기존 타일 상태와 규격 확인",
-      "타일 확보 및 교체 범위 결정",
-      "기존 타일 철거와 바탕면 정리",
-      "새 타일 시공과 마감 확인",
-    ],
-    imageIds: [0, 5, 6, 7, 8],
-    faqs: [
+    photos: [0, 5, 6, 7, 8],
+    questions: [
       {
         q: "타일 한 장만 교체할 수 있나요?",
-        a: "동일하거나 호환되는 규격의 타일을 확보하고 주변 타일을 손상시키지 않을 수 있다면 부분교체가 가능합니다.",
+        a: "적합한 규격의 타일을 확보할 수 있고 주변 타일에 손상을 주지 않는 조건이면 가능합니다.",
       },
       {
-        q: "기존 타일과 색상이 똑같아지나요?",
-        a: "제조 시기와 제품 단종 여부에 따라 색상과 무늬 차이가 발생할 수 있으므로 시공 전에 확인해야 합니다.",
+        q: "기존 타일과 똑같은 색상으로 교체되나요?",
+        a: "단종 여부와 제조 시기 차이로 색상과 무늬가 달라질 수 있으므로 사전에 확인해야 합니다.",
       },
     ],
   },
 } as const;
 
-type CategoryKey = keyof typeof CATEGORIES;
+type ServiceKey = keyof typeof SERVICES;
 
-/* =========================================
-   기존 지역 전체 유지
-========================================= */
+/* 서울·경기·인천 지역 */
 
 const REGIONS = {
   seoul: {
@@ -210,7 +146,6 @@ const REGIONS = {
       jungnang: "중랑구",
     },
   },
-
   gyeonggi: {
     name: "경기",
     districts: {
@@ -225,7 +160,6 @@ const REGIONS = {
       gunpo: "군포",
     },
   },
-
   incheon: {
     name: "인천",
     districts: {
@@ -245,120 +179,147 @@ const REGIONS = {
 
 type RegionKey = keyof typeof REGIONS;
 
-/* =========================================
-   기존 시공사진 파일명 유지
-   지역별 현장 사진이라고 허위 표기하지 않음
-========================================= */
+/* 기존 시공사진 유지 */
 
-const beforeAfter = [
+const PHOTOS = [
   {
     title: "욕실 벽타일 부분교체",
-    desc: "손상된 욕실 벽타일을 제거하고 새 타일로 교체한 시공사례입니다.",
     before: "/IMG_1176.jpeg",
     after: "/IMG_1179.jpeg",
   },
   {
     title: "거실 벽타일 복원",
-    desc: "손상된 벽타일을 정리하고 복원한 시공사례입니다.",
     before: "/IMG_1178.jpeg",
     after: "/IMG_1175.jpeg",
   },
   {
     title: "욕실 바닥·코너 보수",
-    desc: "바닥과 코너 부분의 손상된 마감을 보수한 사례입니다.",
     before: "/IMG_1183.jpeg",
     after: "/IMG_1184.jpeg",
   },
   {
     title: "욕실 타일 마감보수",
-    desc: "욕실 코너와 타일 마감 부분을 보수한 사례입니다.",
     before: "/IMG_1181.jpeg",
     after: "/IMG_1182.jpeg",
   },
   {
     title: "샤워부스 주변 타일 보수",
-    desc: "샤워부스 주변 손상된 타일과 마감을 보수한 사례입니다.",
     before: "/IMG_1180.jpeg",
     after: "/IMG_1177.jpeg",
   },
   {
     title: "벽타일 부분교체",
-    desc: "기존 벽타일을 제거하고 수평을 맞춰 교체한 사례입니다.",
     before: "/IMG_1187.jpeg",
     after: "/IMG_1188.jpeg",
   },
   {
     title: "화장실 벽타일 한 면 교체",
-    desc: "욕실 벽 한 면의 기존 타일을 철거하고 교체한 사례입니다.",
     before: "/IMG_1207.jpeg",
     after: "/IMG_1206.jpeg",
   },
   {
     title: "거실 바닥타일 부분시공",
-    desc: "거실 바닥의 손상된 타일을 정리하고 시공한 사례입니다.",
     before: "/IMG_1189.jpeg",
     after: "/IMG_1190.jpeg",
   },
   {
     title: "상가 복도 바닥타일 보수",
-    desc: "상가 복도의 손상된 바닥타일을 보수한 사례입니다.",
     before: "/IMG_1185.jpeg",
     after: "/IMG_1186.jpeg",
   },
 ];
 
-/* =========================================
-   지역 정보
-========================================= */
+/* 지역별 안내 주제
+   실제 시공장소를 의미하지 않음 */
 
-function getArea(
-  region: string,
-  district: string
-) {
+const AREA_TOPICS = [
+  {
+    title: "욕실 벽타일",
+    description:
+      "욕실 벽의 균열과 타일 탈락, 코너 마감 상태를 먼저 확인합니다.",
+  },
+  {
+    title: "거실 바닥타일",
+    description:
+      "바닥타일의 깨짐과 들뜸, 주변 타일의 높이 차이를 확인합니다.",
+  },
+  {
+    title: "상가 바닥타일",
+    description:
+      "보행이 많은 바닥의 파손 범위와 사용 환경을 고려합니다.",
+  },
+  {
+    title: "주방 벽타일",
+    description:
+      "주방 벽의 타일 파손과 접착 상태, 주변 마감을 확인합니다.",
+  },
+];
+
+function getArea(region: string, district: string) {
   if (!(region in REGIONS)) return null;
 
-  const regionData =
-    REGIONS[region as RegionKey];
+  const data = REGIONS[region as RegionKey];
 
-  const districtName =
-    (regionData.districts as Record<string, string>)[
-      district
-    ];
+  const districtName = (
+    data.districts as Record<string, string>
+  )[district];
 
   if (!districtName) return null;
 
+  const fullName =
+    region === "seoul"
+      ? `서울 ${districtName}`
+      : region === "incheon"
+      ? `인천 ${districtName}`
+      : districtName;
+
   return {
-    name:
-      region === "incheon"
-        ? `인천 ${districtName}`
-        : region === "seoul"
-        ? `서울 ${districtName}`
-        : districtName,
-
-    shortName:
-      region === "incheon"
-        ? `인천 ${districtName}`
-        : districtName,
-
-    regionName: regionData.name,
+    fullName,
+    districtName,
+    regionName: data.name,
   };
 }
 
-/* =========================================
-   정적 지역 페이지 생성
-========================================= */
+function getTopic(region: string, district: string) {
+  const key = `${region}-${district}`;
+  let hash = 0;
 
-export function generateStaticParams() {
-  const results: {
-    category: string;
-    region: string;
-    district: string;
-  }[] = [];
+  for (let i = 0; i < key.length; i++) {
+    hash += key.charCodeAt(i);
+  }
 
-  for (const category of Object.keys(CATEGORIES)) {
+  return AREA_TOPICS[hash % AREA_TOPICS.length];
+}
+
+function getSmsLink(area: string, service: string) {
+  const message =
+    `안녕하세요. 금손종합보수 상담 문의드립니다.\n` +
+    `지역: ${area}\n` +
+    `작업: ${service}\n` +
+    `타일 상태 사진을 첨부하겠습니다.`;
+
+  return `sms:${PHONE}?body=${encodeURIComponent(message)}`;
+}
+
+type Params = {
+  category: string;
+  region: string;
+  district: string;
+};
+
+type PageProps = {
+  params: Promise<Params>;
+};
+
+/* 지역별 URL 정적 생성 */
+
+export function generateStaticParams(): Params[] {
+  const result: Params[] = [];
+
+  for (const category of Object.keys(SERVICES)) {
     for (const [region, data] of Object.entries(REGIONS)) {
       for (const district of Object.keys(data.districts)) {
-        results.push({
+        result.push({
           category,
           region,
           district,
@@ -367,82 +328,57 @@ export function generateStaticParams() {
     }
   }
 
-  return results;
+  return result;
 }
 
-type PageProps = {
-  params: Promise<{
-    category: string;
-    region: string;
-    district: string;
-  }>;
-};
-
-/* =========================================
-   지역별 메타데이터
-========================================= */
+/* 네이버 SEO */
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { category, region, district } =
-    await params;
-
+  const { category, region, district } = await params;
   const area = getArea(region, district);
 
-  if (!(category in CATEGORIES) || !area) {
+  if (!(category in SERVICES) || !area) {
     return {
       title: "페이지를 찾을 수 없습니다",
       robots: { index: false, follow: false },
     };
   }
 
-  const service =
-    CATEGORIES[category as CategoryKey];
+  const service = SERVICES[category as ServiceKey];
 
   const url =
-    `${SITE_URL}/services/tile/${category}/${region}/${district}`;
+    `${SITE}/services/tile/${category}/${region}/${district}`;
 
   const title =
-    `${area.shortName} ${service.name} | ${service.serviceTitle} | 금손종합보수`;
+    `${area.fullName} ${service.name} | ${service.title} | 금손종합보수`;
 
   const description =
-    `${area.name} ${service.name} 상담. ${service.description} 벽타일·바닥타일 시공사례, 작업 방법과 사진 상담 안내를 확인하세요.`;
-
-  const image =
-    `${SITE_URL}${beforeAfter[service.imageIds[0]].after}`;
+    `${area.fullName} ${service.name} 상담 안내. ` +
+    `${service.intro} ` +
+    `금손종합보수의 타일 시공 전후 사진과 상담 방법을 확인하세요.`;
 
   return {
     title: { absolute: title },
     description,
-
-    keywords: [
-      `${area.shortName} ${service.name}`,
-      `${area.name} ${service.name}`,
-      ...service.keywords.map(
-        (keyword) => `${area.shortName} ${keyword}`
-      ),
-    ],
-
     alternates: {
       canonical: url,
     },
-
     openGraph: {
       type: "website",
       locale: "ko_KR",
       siteName: COMPANY,
-      url,
       title,
       description,
+      url,
       images: [
         {
-          url: image,
-          alt: `${service.name} 시공사례`,
+          url: `${SITE}${PHOTOS[service.photos[0]].after}`,
+          alt: `${service.name} 작업 사례 사진`,
         },
       ],
     },
-
     robots: {
       index: true,
       follow: true,
@@ -450,47 +386,52 @@ export async function generateMetadata({
   };
 }
 
-/* =========================================
-   지역별 상세페이지
-========================================= */
+/* 상세 페이지 */
 
-export default async function TileCategoryPage({
+export default async function TileAreaPage({
   params,
 }: PageProps) {
-  const { category, region, district } =
-    await params;
+  const { category, region, district } = await params;
 
   const area = getArea(region, district);
 
-  if (!(category in CATEGORIES) || !area) {
+  if (!(category in SERVICES) || !area) {
     notFound();
   }
 
-  const categoryKey = category as CategoryKey;
-  const service = CATEGORIES[categoryKey];
+  const serviceKey = category as ServiceKey;
+  const service = SERVICES[serviceKey];
 
-  const pageUrl =
-    `${SITE_URL}/services/tile/${category}/${region}/${district}`;
+  const topic = getTopic(region, district);
 
-  const selectedPhotos =
-    service.imageIds.map((id) => beforeAfter[id]);
+  const photos = service.photos.map(
+    (index) => PHOTOS[index]
+  );
+
+  const sms = getSmsLink(
+    area.fullName,
+    service.name
+  );
+
+  const url =
+    `${SITE}/services/tile/${category}/${region}/${district}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${area.name} ${service.name}`,
-    description: service.description,
+    name: `${area.fullName} ${service.name}`,
+    description: service.intro,
     serviceType: service.name,
-    url: pageUrl,
+    url,
     provider: {
       "@type": "HomeAndConstructionBusiness",
       name: COMPANY,
-      telephone: PHONE_DISPLAY,
-      url: SITE_URL,
+      url: SITE,
+      telephone: PHONE_TEXT,
     },
     areaServed: {
       "@type": "AdministrativeArea",
-      name: area.name,
+      name: area.fullName,
     },
   };
 
@@ -507,8 +448,6 @@ export default async function TileCategoryPage({
       />
 
       <main className="clean-area-page">
-
-        {/* HEADER */}
         <header className="clean-area-header">
           <div className="container clean-area-header-inner">
             <Link href="/" className="brand">
@@ -522,9 +461,8 @@ export default async function TileCategoryPage({
                 </div>
               </div>
             </Link>
-
             <a
-              href={PHONE_LINK}
+              href={`tel:${PHONE}`}
               className="clean-area-header-call"
             >
               전화 상담
@@ -532,10 +470,8 @@ export default async function TileCategoryPage({
           </div>
         </header>
 
-        {/* HERO */}
         <section className="clean-area-hero">
           <div className="container">
-
             <nav
               className="clean-area-breadcrumb"
               aria-label="현재 위치"
@@ -543,45 +479,43 @@ export default async function TileCategoryPage({
               <Link href="/">홈</Link>
               <span>›</span>
               <Link href="/services/tile">
-                타일
+                타일 전문
               </Link>
               <span>›</span>
-              <Link
-                href={`/services/tile/${category}`}
-              >
+              <Link href={`/services/tile/${category}`}>
                 {service.name}
               </Link>
               <span>›</span>
-              <strong>{area.name}</strong>
+              <strong>{area.fullName}</strong>
             </nav>
 
             <div className="clean-area-label">
-              {service.label}
+              {service.en}
             </div>
 
             <h1>
-              {area.shortName}
+              {area.fullName}
               <br />
-              {service.title}
+              {service.name}
             </h1>
 
-            <p>{service.description}</p>
+            <p>{service.intro}</p>
 
             <p>
-              {area.name} 지역의 타일 손상 상태를
-              사진으로 보내주시면 작업 가능 범위와
-              필요한 확인 사항을 안내해드립니다.
+              {area.fullName} 지역의 타일 상태를
+              사진으로 보내주시면 작업 가능 여부와
+              필요한 확인 사항을 안내합니다.
             </p>
 
             <div className="clean-area-hero-buttons">
               <a
-                href={PHONE_LINK}
+                href={`tel:${PHONE}`}
                 className="clean-area-primary"
               >
                 전화 상담
               </a>
               <a
-                href={SMS_LINK}
+                href={sms}
                 className="clean-area-secondary"
               >
                 사진 문자 상담
@@ -590,23 +524,18 @@ export default async function TileCategoryPage({
           </div>
         </section>
 
-        {/* SERVICE */}
         <section className="clean-area-section">
           <div className="container">
-
             <div className="clean-area-section-head">
-              <span>{service.label}</span>
+              <span>{service.en}</span>
               <h2>
-                {area.shortName}{" "}
-                {service.serviceTitle}
+                {area.fullName} {service.title}
               </h2>
-              <p>
-                {service.serviceDescription}
-              </p>
+              <p>{service.intro}</p>
             </div>
 
             <div className="clean-area-service-grid">
-              {service.services.map((item, index) => (
+              {service.items.map((item, index) => (
                 <article key={item.title}>
                   <strong>
                     {String(index + 1).padStart(2, "0")}
@@ -619,69 +548,76 @@ export default async function TileCategoryPage({
           </div>
         </section>
 
-        {/* PROCESS */}
         <section className="clean-area-section">
           <div className="container">
-
             <div className="clean-area-section-head">
-              <span>WORK PROCESS</span>
+              <span>AREA GUIDE</span>
               <h2>
-                {service.name} 작업 진행 안내
+                {area.fullName} 타일 작업 상담 안내
               </h2>
               <p>
-                타일 상태와 시공 환경에 따라
-                실제 작업 범위와 순서는
-                달라질 수 있습니다.
+                지역별 상담 페이지에서 우선 확인할
+                작업 유형을 안내합니다.
               </p>
             </div>
 
             <div className="clean-area-service-grid">
-              {service.process.map((item, index) => (
-                <article key={item}>
-                  <strong>
-                    {String(index + 1).padStart(2, "0")}
-                  </strong>
-                  <h3>{item}</h3>
-                </article>
-              ))}
+              <article>
+                <strong>01</strong>
+                <h3>{topic.title} 상태 확인</h3>
+                <p>{topic.description}</p>
+              </article>
+              <article>
+                <strong>02</strong>
+                <h3>부분 작업 가능 여부</h3>
+                <p>
+                  손상 면적과 주변 타일의 접착 상태,
+                  규격 등을 확인해 필요한 작업 범위를
+                  검토합니다.
+                </p>
+              </article>
+              <article>
+                <strong>03</strong>
+                <h3>사진으로 상담</h3>
+                <p>
+                  손상 부위의 근접 사진과 공간 전체
+                  사진을 함께 보내주시면 상담에
+                  도움이 됩니다.
+                </p>
+              </article>
             </div>
           </div>
         </section>
 
-        {/* BEFORE & AFTER */}
         <section className="before-after-section">
           <div className="container">
-
             <div className="section-head">
               <div className="eyebrow">
                 BEFORE & AFTER
               </div>
-
               <h2>
-                {service.name} 시공 전후
+                {service.name} 시공 전후 사진
               </h2>
-
               <p>
-                금손종합보수의 기존 시공사례
-                중 {service.name}와 관련된
-                사진을 모았습니다.
-                아래 사진은 {area.name} 현장
-                사진만을 의미하지는 않습니다.
+                금손종합보수의 기존 시공사진 중
+                {service.name}와 관련된 사례입니다.
+                사진의 실제 시공 지역은 확인되지
+                않았으며, {area.fullName}에서
+                시공한 사례라는 의미는 아닙니다.
               </p>
             </div>
 
             <div className="before-after-grid">
-              {selectedPhotos.map((item) => (
+              {photos.map((item) => (
                 <article
-                  key={item.title}
                   className="before-after-card"
+                  key={item.title}
                 >
                   <div className="before-after-images">
-
                     <div className="before-after-image-box">
                       <img
                         src={item.before}
-                        alt={`${item.title} 작업 전 모습`}
+                        alt={`${item.title} 작업 전`}
                         loading="lazy"
                       />
                       <span className="before-label">
@@ -692,14 +628,13 @@ export default async function TileCategoryPage({
                     <div className="before-after-image-box">
                       <img
                         src={item.after}
-                        alt={`${item.title} 작업 후 모습`}
+                        alt={`${item.title} 작업 후`}
                         loading="lazy"
                       />
                       <span className="after-label">
                         시공 후
                       </span>
                     </div>
-
                   </div>
 
                   <div className="before-after-content">
@@ -707,7 +642,11 @@ export default async function TileCategoryPage({
                       금손종합보수 시공사례
                     </span>
                     <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
+                    <p>
+                      시공 전후 사진을 통해 작업
+                      범위와 마감 상태를 확인할 수
+                      있습니다.
+                    </p>
                   </div>
                 </article>
               ))}
@@ -715,10 +654,8 @@ export default async function TileCategoryPage({
           </div>
         </section>
 
-        {/* FAQ */}
         <section className="clean-area-section">
           <div className="container">
-
             <div className="clean-area-section-head">
               <span>FAQ</span>
               <h2>
@@ -727,7 +664,7 @@ export default async function TileCategoryPage({
             </div>
 
             <div className="clean-area-service-grid">
-              {service.faqs.map((item) => (
+              {service.questions.map((item) => (
                 <article key={item.q}>
                   <h3>{item.q}</h3>
                   <p>{item.a}</p>
@@ -737,31 +674,27 @@ export default async function TileCategoryPage({
           </div>
         </section>
 
-        {/* CATEGORY LINKS */}
         <section className="clean-area-section">
           <div className="container">
-
             <div className="clean-area-section-head">
               <span>OTHER SERVICES</span>
               <h2>
-                {area.shortName} 다른 타일 서비스
+                {area.fullName} 다른 타일 서비스
               </h2>
             </div>
 
             <div className="clean-area-service-grid">
-              {(Object.keys(CATEGORIES) as CategoryKey[])
-                .filter((key) => key !== categoryKey)
+              {(Object.keys(SERVICES) as ServiceKey[])
+                .filter((key) => key !== serviceKey)
                 .map((key) => (
                   <article key={key}>
-                    <h3>{CATEGORIES[key].name}</h3>
-                    <p>
-                      {CATEGORIES[key].description}
-                    </p>
+                    <h3>{SERVICES[key].name}</h3>
+                    <p>{SERVICES[key].intro}</p>
                     <Link
                       href={`/services/tile/${key}/${region}/${district}`}
                     >
-                      {area.shortName}{" "}
-                      {CATEGORIES[key].name} 보기 →
+                      {area.fullName}{" "}
+                      {SERVICES[key].name} 보기 →
                     </Link>
                   </article>
                 ))}
@@ -769,89 +702,72 @@ export default async function TileCategoryPage({
           </div>
         </section>
 
-        {/* PHOTO CONSULT */}
         <section className="clean-area-photo">
           <div className="container clean-area-photo-inner">
-
             <div>
               <span>PHOTO CONSULT</span>
               <h2>
-                {area.shortName} {service.name}
+                {area.fullName} {service.name}
                 <br />
                 사진으로 먼저 상담하세요
               </h2>
               <p>
-                작업 지역과 손상된 타일의 전체 사진,
-                가까이 촬영한 사진을 보내주세요.
-                타일 규격을 알고 있다면
-                함께 알려주시면 좋습니다.
+                작업 지역, 타일 전체 사진,
+                깨지거나 손상된 부분의 근접 사진,
+                타일 크기를 알려주시면 좋습니다.
               </p>
             </div>
 
             <div className="clean-area-photo-card">
-              <strong>{PHONE_DISPLAY}</strong>
-              <p>
-                지역 + 작업 내용 + 사진
-              </p>
-              <a href={SMS_LINK}>
+              <strong>{PHONE_TEXT}</strong>
+              <p>지역 + 작업 내용 + 사진</p>
+              <a href={sms}>
                 사진 문자 보내기
               </a>
             </div>
-
           </div>
         </section>
 
-        {/* CTA */}
         <section className="clean-area-cta">
           <div className="container clean-area-cta-inner">
             <div>
               <span>{COMPANY}</span>
               <h2>
-                {area.shortName}{" "}
-                {service.name} 문의
+                {area.fullName} {service.name} 문의
               </h2>
             </div>
-            <a href={PHONE_LINK}>
-              {PHONE_DISPLAY}
+            <a href={`tel:${PHONE}`}>
+              {PHONE_TEXT}
             </a>
           </div>
         </section>
 
-        {/* FOOTER */}
         <footer className="footer">
           <div className="container footer-inner">
-
             <div>
               <div className="footer-company">
                 {COMPANY}
               </div>
               <div className="footer-text">
-                대표자 {OWNER}
+                대표자 김영호
               </div>
             </div>
 
             <div className="footer-right">
-              <a href={PHONE_LINK}>
-                {PHONE_DISPLAY}
+              <a href={`tel:${PHONE}`}>
+                {PHONE_TEXT}
               </a>
               <div className="footer-text">
-                {area.name} {service.name} 상담
+                {area.fullName} {service.name} 상담
               </div>
             </div>
-
           </div>
         </footer>
 
-        {/* MOBILE CTA */}
         <div className="clean-mobile-actions">
-          <a href={PHONE_LINK}>
-            전화 상담
-          </a>
-          <a href={SMS_LINK}>
-            사진 상담
-          </a>
+          <a href={`tel:${PHONE}`}>전화 상담</a>
+          <a href={sms}>사진 상담</a>
         </div>
-
       </main>
     </>
   );

@@ -175,7 +175,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "서울·경기·인천 타일수리, 타일보수, 타일교체 전문 금손종합보수. 깨진 타일, 들뜬 타일, 욕실 벽타일, 바닥타일 부분교체 실제 시공사례와 사진 상담.",
+    "서울·경기·인천 타일수리·타일보수·타일교체 전문 금손종합보수. 깨진 타일·욕실·바닥타일 부분시공 상담.",
 
   alternates: {
     canonical: SITE,
@@ -190,10 +190,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     siteName: COMPANY,
+
     title:
       "금손종합보수 | 타일수리·타일보수·타일교체 전문",
+
     description:
-      "깨진 타일 한 장부터 욕실·거실·상가 타일 부분보수와 교체까지. 실제 시공사례를 확인하세요.",
+      "서울·경기·인천 타일수리·타일보수·타일교체 전문 금손종합보수. 깨진 타일·욕실·바닥타일 부분시공 상담.",
+
     url: SITE,
 
     images: [
@@ -276,15 +279,12 @@ body{
   margin:0 auto;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .gh-header{
   height:76px;
   display:flex;
   align-items:center;
-
   background:rgba(255,255,255,.96);
   border-bottom:1px solid #eceef0;
 }
@@ -304,11 +304,9 @@ body{
 .gh-logo{
   width:45px;
   height:45px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:13px;
   background:var(--navy2);
 }
@@ -331,12 +329,9 @@ body{
 
 .gh-brand-en{
   margin-top:5px;
-
   color:var(--gold);
-
   font-size:7px !important;
   line-height:1;
-
   font-weight:900;
   letter-spacing:.25em;
 }
@@ -356,34 +351,24 @@ body{
 .gh-header-contact{
   min-height:40px;
   padding:0 16px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:999px;
-
   background:var(--navy);
-
   color:#fff !important;
-
   font-size:11px !important;
   font-weight:900;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .gh-hero{
   position:relative;
   overflow:hidden;
-
   min-height:660px;
-
   display:flex;
   align-items:center;
-
   background:
     radial-gradient(
       circle at 85% 5%,
@@ -399,32 +384,21 @@ body{
 
 .gh-hero::after{
   content:"";
-
   position:absolute;
   right:-180px;
   top:-170px;
-
   width:540px;
   height:540px;
-
   border-radius:50%;
-
-  border:
-    1px solid rgba(24,63,112,.06);
+  border:1px solid rgba(24,63,112,.06);
 }
 
 .gh-hero-grid{
   position:relative;
   z-index:2;
-
   width:100%;
-
   display:grid;
-
-  grid-template-columns:
-    minmax(0,1fr)
-    470px;
-
+  grid-template-columns:minmax(0,1fr) 470px;
   gap:75px;
   align-items:center;
 }
@@ -433,35 +407,25 @@ body{
   display:inline-flex;
   align-items:center;
   gap:9px;
-
   color:var(--gold);
-
   font-size:9px !important;
   font-weight:900;
-
   letter-spacing:.16em;
 }
 
 .gh-hero-kicker::before{
   content:"";
-
   width:28px;
   height:1px;
-
   background:var(--gold);
 }
 
 .gh-hero h1{
   max-width:660px;
-
-  margin:
-    17px 0 0 !important;
-
+  margin:17px 0 0 !important;
   color:var(--navy);
-
   font-size:53px !important;
   line-height:1.11;
-
   font-weight:900;
   letter-spacing:-.06em;
 }
@@ -473,34 +437,25 @@ body{
 
 .gh-hero-copy{
   max-width:640px;
-
-  margin:
-    22px 0 0 !important;
-
+  margin:22px 0 0 !important;
   color:#65717f;
-
   font-size:15px !important;
   line-height:1.85;
 }
 
 .gh-hero-actions{
   margin-top:28px;
-
   display:flex;
   gap:9px;
 }
 
 .gh-btn{
   min-height:51px;
-
   padding:0 22px;
-
   display:inline-flex;
   align-items:center;
   justify-content:center;
-
   border-radius:12px;
-
   font-size:12px !important;
   font-weight:900;
 }
@@ -517,7 +472,6 @@ body{
 
 .gh-hero-note{
   margin-top:23px;
-
   display:flex;
   gap:22px;
 }
@@ -526,9 +480,7 @@ body{
   display:flex;
   align-items:center;
   gap:8px;
-
   color:#77818e;
-
   font-size:10px !important;
   font-weight:700;
 }
@@ -536,7 +488,6 @@ body{
 .gh-hero-note-dot{
   width:6px;
   height:6px;
-
   border-radius:50%;
   background:var(--gold);
 }
@@ -545,12 +496,8 @@ body{
 
 .gh-showcase{
   display:grid;
-
-  grid-template-columns:
-    1.1fr .9fr;
-
+  grid-template-columns:1.1fr .9fr;
   gap:10px;
-
   height:520px;
 }
 
@@ -558,9 +505,7 @@ body{
 .gh-showcase-small{
   overflow:hidden;
   position:relative;
-
   border-radius:22px;
-
   background:#ddd;
 }
 
@@ -577,22 +522,15 @@ body{
 
 .gh-showcase-main::after{
   content:"ACTUAL WORK";
-
   position:absolute;
   left:15px;
   bottom:15px;
-
   padding:8px 11px;
-
   border-radius:999px;
-
   background:rgba(14,34,62,.82);
-
   color:#fff;
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.1em;
 }
 
@@ -600,33 +538,22 @@ body{
   min-height:0;
 }
 
-/* =========================================================
-   INTRO BAR
-========================================================= */
+/* TRUST */
 
 .gh-trust{
   position:relative;
   z-index:5;
-
   margin-top:-38px;
 }
 
 .gh-trust-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-
   overflow:hidden;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:19px;
-
   background:#fff;
-
-  box-shadow:
-    0 16px 42px
-    rgba(14,34,62,.08);
+  box-shadow:0 16px 42px rgba(14,34,62,.08);
 }
 
 .gh-trust-item{
@@ -634,43 +561,32 @@ body{
 }
 
 .gh-trust-item + .gh-trust-item{
-  border-left:
-    1px solid var(--line);
+  border-left:1px solid var(--line);
 }
 
 .gh-trust-item span{
   color:var(--gold);
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.13em;
 }
 
 .gh-trust-item strong{
   display:block;
-
   margin-top:7px;
-
   color:var(--navy);
-
   font-size:15px !important;
   font-weight:900;
 }
 
 .gh-trust-item p{
-  margin:
-    6px 0 0 !important;
-
+  margin:6px 0 0 !important;
   color:#7a8491;
-
   font-size:10.5px !important;
   line-height:1.55;
 }
 
-/* =========================================================
-   COMMON SECTION
-========================================================= */
+/* COMMON SECTION */
 
 .gh-section{
   padding:82px 0;
@@ -687,12 +603,9 @@ body{
 
 .gh-section-head{
   display:flex;
-
   justify-content:space-between;
   align-items:flex-end;
-
   gap:55px;
-
   margin-bottom:33px;
 }
 
@@ -702,22 +615,16 @@ body{
 
 .gh-eyebrow{
   color:var(--gold);
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.17em;
 }
 
 .gh-section-head h2{
-  margin:
-    9px 0 0 !important;
-
+  margin:9px 0 0 !important;
   color:var(--navy);
-
   font-size:33px !important;
   line-height:1.28;
-
   font-weight:900;
   letter-spacing:-.05em;
 }
@@ -728,18 +635,13 @@ body{
 
 .gh-section-head > p{
   max-width:420px;
-
   margin:0 !important;
-
   color:#747e8c;
-
   font-size:12.5px !important;
   line-height:1.75;
 }
 
-/* =========================================================
-   SERVICES
-========================================================= */
+/* SERVICES */
 
 .gh-service-grid{
   display:grid;
@@ -749,12 +651,8 @@ body{
 
 .gh-service-card{
   overflow:hidden;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:20px;
-
   background:#fff;
 }
 
@@ -769,9 +667,7 @@ body{
   height:100%;
   object-fit:cover;
   display:block;
-
-  transition:
-    transform .35s ease;
+  transition:transform .35s ease;
 }
 
 .gh-service-card:hover .gh-service-image img{
@@ -780,24 +676,16 @@ body{
 
 .gh-service-number{
   position:absolute;
-
   left:13px;
   top:13px;
-
   width:34px;
   height:34px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:50%;
-
-  background:
-    rgba(255,255,255,.92);
-
+  background:rgba(255,255,255,.92);
   color:var(--navy);
-
   font-size:9px !important;
   font-weight:900;
 }
@@ -808,36 +696,27 @@ body{
 
 .gh-service-body span{
   color:var(--gold);
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.14em;
 }
 
 .gh-service-body h3{
-  margin:
-    7px 0 0 !important;
-
+  margin:7px 0 0 !important;
   color:var(--navy);
-
   font-size:20px !important;
   font-weight:900;
 }
 
 .gh-service-body p{
-  margin:
-    9px 0 0 !important;
-
+  margin:9px 0 0 !important;
   color:#707b89;
-
   font-size:11.5px !important;
   line-height:1.7;
 }
 
 .gh-service-tags{
   margin-top:15px;
-
   display:flex;
   flex-wrap:wrap;
   gap:6px;
@@ -845,209 +724,147 @@ body{
 
 .gh-service-tags small{
   padding:6px 8px;
-
   border-radius:999px;
-
   background:#f3f4f5;
-
   color:#637081;
-
   font-size:8.5px !important;
   font-weight:800;
 }
 
 .gh-service-link{
   margin-top:17px;
-
   display:inline-flex;
-
   color:#85652f !important;
-
   font-size:10px !important;
   font-weight:900;
 }
 
-/* =========================================================
-   EXPERTISE
-========================================================= */
+/* EXPERTISE */
 
 .gh-expert-grid{
   display:grid;
-
-  grid-template-columns:
-    .8fr
-    1.2fr;
-
+  grid-template-columns:.8fr 1.2fr;
   overflow:hidden;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:23px;
-
   background:#fff;
 }
 
 .gh-expert-left{
   padding:45px;
-
   background:
     linear-gradient(
       145deg,
       #10233f,
       #1e497c
     );
-
   color:#fff;
 }
 
 .gh-expert-left span{
   color:#d8ba79;
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.15em;
 }
 
 .gh-expert-left h2{
-  margin:
-    12px 0 0 !important;
-
+  margin:12px 0 0 !important;
   color:#fff;
-
   font-size:31px !important;
   line-height:1.35;
-
   font-weight:900;
   letter-spacing:-.05em;
 }
 
 .gh-expert-left p{
-  margin:
-    16px 0 0 !important;
-
+  margin:16px 0 0 !important;
   color:#cbd4df;
-
   font-size:12px !important;
   line-height:1.75;
 }
 
 .gh-expert-right{
   padding:35px;
-
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:1px;
-
   background:var(--line);
 }
 
 .gh-expert-item{
   padding:24px;
-
   background:#fff;
 }
 
 .gh-expert-num{
   color:var(--gold);
-
   font-size:9px !important;
   font-weight:900;
 }
 
 .gh-expert-item h3{
-  margin:
-    13px 0 0 !important;
-
+  margin:13px 0 0 !important;
   color:var(--navy);
-
   font-size:16px !important;
   font-weight:900;
 }
 
 .gh-expert-item p{
-  margin:
-    7px 0 0 !important;
-
+  margin:7px 0 0 !important;
   color:#717b89;
-
   font-size:10.5px !important;
   line-height:1.65;
 }
 
-/* =========================================================
-   WORK
-========================================================= */
+/* WORK */
 
 .gh-work-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
 }
 
 .gh-work{
   overflow:hidden;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:19px;
-
   background:#fff;
 }
 
 .gh-work-images{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns:1fr 1fr;
 }
 
 .gh-work-image{
   position:relative;
-
   overflow:hidden;
-
   aspect-ratio:1.15/1;
-
   background:#eee;
 }
 
 .gh-work-image img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   display:block;
 }
 
 .gh-work-label{
   position:absolute;
-
   left:9px;
   bottom:9px;
-
   padding:5px 8px;
-
   border-radius:999px;
-
-  background:
-    rgba(14,34,62,.86);
-
+  background:rgba(14,34,62,.86);
   color:#fff;
-
   font-size:7px !important;
   font-weight:900;
 }
 
 .gh-work-label.after{
-  background:
-    rgba(174,135,65,.93);
+  background:rgba(174,135,65,.93);
 }
 
 .gh-work-body{
@@ -1056,53 +873,34 @@ body{
 
 .gh-work-body span{
   color:var(--gold);
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.13em;
 }
 
 .gh-work-body h3{
-  margin:
-    6px 0 0 !important;
-
+  margin:6px 0 0 !important;
   color:var(--navy);
-
   font-size:16px !important;
   font-weight:900;
 }
 
 .gh-work-body p{
-  margin:
-    7px 0 0 !important;
-
+  margin:7px 0 0 !important;
   color:#707b89;
-
   font-size:10.5px !important;
   line-height:1.65;
 }
 
-/* =========================================================
-   PROCESS
-========================================================= */
+/* PROCESS */
 
 .gh-process{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   overflow:hidden;
-
-  border:
-    1px solid
-    rgba(255,255,255,.14);
-
+  border:1px solid rgba(255,255,255,.14);
   border-radius:20px;
-
-  background:
-    rgba(255,255,255,.07);
+  background:rgba(255,255,255,.07);
 }
 
 .gh-process-item{
@@ -1110,94 +908,67 @@ body{
 }
 
 .gh-process-item + .gh-process-item{
-  border-left:
-    1px solid
-    rgba(255,255,255,.12);
+  border-left:1px solid rgba(255,255,255,.12);
 }
 
 .gh-process-item span{
   color:#d9bc7c;
-
   font-size:8px !important;
   font-weight:900;
 }
 
 .gh-process-item h3{
-  margin:
-    15px 0 0 !important;
-
+  margin:15px 0 0 !important;
   color:#fff;
-
   font-size:15px !important;
   font-weight:900;
 }
 
 .gh-process-item p{
-  margin:
-    8px 0 0 !important;
-
+  margin:8px 0 0 !important;
   color:#c3ccd8;
-
   font-size:10px !important;
   line-height:1.65;
 }
 
-/* =========================================================
-   AREAS
-========================================================= */
+/* AREAS */
 
 .gh-area-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(3,1fr);
   gap:13px;
 }
 
 .gh-area{
   padding:25px;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:18px;
-
   background:#fff;
 }
 
 .gh-area span{
   color:var(--gold);
-
   font-size:8px !important;
   font-weight:900;
-
   letter-spacing:.14em;
 }
 
 .gh-area h3{
-  margin:
-    8px 0 0 !important;
-
+  margin:8px 0 0 !important;
   color:var(--navy);
-
   font-size:20px !important;
   font-weight:900;
 }
 
 .gh-area p{
-  margin:
-    7px 0 0 !important;
-
+  margin:7px 0 0 !important;
   color:#727c89;
-
   font-size:10.5px !important;
   line-height:1.65;
 }
 
 .gh-area-links{
   margin-top:16px;
-
   display:flex;
   flex-wrap:wrap;
   gap:7px;
@@ -1205,122 +976,82 @@ body{
 
 .gh-area-link{
   min-height:35px;
-
   padding:0 10px;
-
   display:flex;
   align-items:center;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:9px;
-
   color:#536074 !important;
-
   font-size:9px !important;
   font-weight:800;
 }
 
-/* =========================================================
-   CONSULT
-========================================================= */
+/* CONSULT */
 
 .gh-consult{
   padding:70px 0;
-
   background:var(--cream);
 }
 
 .gh-consult-inner{
   display:grid;
-
-  grid-template-columns:
-    1fr 310px;
-
+  grid-template-columns:1fr 310px;
   gap:45px;
-
   align-items:center;
 }
 
 .gh-consult h2{
-  margin:
-    9px 0 0 !important;
-
+  margin:9px 0 0 !important;
   color:var(--navy);
-
   font-size:32px !important;
   line-height:1.33;
-
   font-weight:900;
   letter-spacing:-.05em;
 }
 
 .gh-consult p{
   max-width:620px;
-
-  margin:
-    13px 0 0 !important;
-
+  margin:13px 0 0 !important;
   color:#746d62;
-
   font-size:12px !important;
   line-height:1.75;
 }
 
 .gh-consult-card{
   padding:23px;
-
   border-radius:18px;
-
   background:#fff;
-
-  box-shadow:
-    0 12px 30px
-    rgba(72,52,23,.09);
+  box-shadow:0 12px 30px rgba(72,52,23,.09);
 }
 
 .gh-consult-card strong{
   display:block;
-
   color:var(--navy);
-
   font-size:21px !important;
   font-weight:900;
 }
 
 .gh-consult-card small{
   display:block;
-
   margin-top:5px;
-
   color:#91959b;
-
   font-size:8.5px !important;
 }
 
 .gh-consult-card a{
   min-height:46px;
-
   margin-top:16px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:10px;
-
   background:var(--navy2);
-
   color:#fff !important;
-
   font-size:11px !important;
   font-weight:900;
 }
 
-/* =========================================================
-   FAQ
-========================================================= */
+/* FAQ */
 
 .gh-faq-list{
   display:grid;
@@ -1329,55 +1060,37 @@ body{
 
 .gh-faq{
   padding:20px;
-
-  border:
-    1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:15px;
-
   background:#fff;
 }
 
 .gh-faq h3{
   margin:0 !important;
-
   color:var(--navy);
-
   font-size:13.5px !important;
   line-height:1.55;
-
   font-weight:900;
 }
 
 .gh-faq p{
-  margin:
-    7px 0 0 !important;
-
+  margin:7px 0 0 !important;
   color:#717b89;
-
   font-size:10.5px !important;
   line-height:1.7;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .gh-footer{
-  padding:
-    43px 0 120px;
-
+  padding:43px 0 120px;
   background:#09192e;
-
   color:#fff;
 }
 
 .gh-footer-grid{
   display:grid;
-
-  grid-template-columns:
-    1fr auto;
-
+  grid-template-columns:1fr auto;
   gap:30px;
 }
 
@@ -1387,33 +1100,25 @@ body{
 }
 
 .gh-footer p{
-  margin:
-    7px 0 0 !important;
-
+  margin:7px 0 0 !important;
   color:#abb6c5;
-
   font-size:10px !important;
   line-height:1.75;
 }
 
 .gh-footer a{
   color:#fff !important;
-
   font-size:12px !important;
   font-weight:900;
 }
 
-/* =========================================================
-   MOBILE CTA
-========================================================= */
+/* MOBILE CTA */
 
 .gh-mobile{
   display:none;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media(max-width:767px){
 
@@ -1422,11 +1127,8 @@ body{
   }
 
   .gh-wrap{
-    width:
-      calc(100% - 32px);
+    width:calc(100% - 32px);
   }
-
-  /* HEADER */
 
   .gh-header{
     height:61px;
@@ -1435,7 +1137,6 @@ body{
   .gh-logo{
     width:36px;
     height:36px;
-
     border-radius:10px;
   }
 
@@ -1462,19 +1163,13 @@ body{
 
   .gh-header-contact{
     min-height:33px;
-
     padding:0 11px;
-
     font-size:9.5px !important;
   }
 
-  /* HERO */
-
   .gh-hero{
     min-height:0;
-
-    padding:
-      49px 0 61px;
+    padding:49px 0 61px;
   }
 
   .gh-hero-grid{
@@ -1491,16 +1186,13 @@ body{
 
   .gh-hero h1{
     max-width:340px;
-
     margin-top:12px !important;
-
     font-size:32px !important;
     line-height:1.12;
   }
 
   .gh-hero-copy{
     margin-top:15px !important;
-
     font-size:11.5px !important;
     line-height:1.7;
   }
@@ -1511,12 +1203,9 @@ body{
 
   .gh-btn{
     flex:1;
-
     min-width:0;
     min-height:44px;
-
     padding:0 8px;
-
     font-size:10.5px !important;
   }
 
@@ -1527,7 +1216,6 @@ body{
 
   .gh-hero-note-item{
     gap:5px;
-
     font-size:8.5px !important;
   }
 
@@ -1538,9 +1226,7 @@ body{
 
   .gh-showcase{
     margin-top:29px;
-
     height:300px;
-
     gap:7px;
   }
 
@@ -1552,22 +1238,16 @@ body{
   .gh-showcase-main::after{
     left:9px;
     bottom:9px;
-
     padding:5px 7px;
-
     font-size:6px !important;
   }
-
-  /* TRUST */
 
   .gh-trust{
     margin-top:-18px;
   }
 
   .gh-trust-grid{
-    grid-template-columns:
-      1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     border-radius:15px;
   }
 
@@ -1581,14 +1261,12 @@ body{
 
   .gh-trust-item:nth-child(2),
   .gh-trust-item:nth-child(4){
-    border-left:
-      1px solid var(--line);
+    border-left:1px solid var(--line);
   }
 
   .gh-trust-item:nth-child(3),
   .gh-trust-item:nth-child(4){
-    border-top:
-      1px solid var(--line);
+    border-top:1px solid var(--line);
   }
 
   .gh-trust-item span{
@@ -1597,7 +1275,6 @@ body{
 
   .gh-trust-item strong{
     margin-top:4px;
-
     font-size:11px !important;
   }
 
@@ -1605,15 +1282,12 @@ body{
     display:none;
   }
 
-  /* SECTION */
-
   .gh-section{
     padding:50px 0;
   }
 
   .gh-section-head{
     display:block;
-
     margin-bottom:20px;
   }
 
@@ -1623,19 +1297,15 @@ body{
 
   .gh-section-head h2{
     margin-top:7px !important;
-
     font-size:22px !important;
     line-height:1.3;
   }
 
   .gh-section-head > p{
     margin-top:9px !important;
-
     font-size:10.5px !important;
     line-height:1.65;
   }
-
-  /* SERVICE */
 
   .gh-service-grid{
     grid-template-columns:1fr;
@@ -1644,11 +1314,7 @@ body{
 
   .gh-service-card{
     display:grid;
-
-    grid-template-columns:
-      128px
-      minmax(0,1fr);
-
+    grid-template-columns:128px minmax(0,1fr);
     border-radius:15px;
   }
 
@@ -1660,10 +1326,8 @@ body{
   .gh-service-number{
     left:8px;
     top:8px;
-
     width:27px;
     height:27px;
-
     font-size:7px !important;
   }
 
@@ -1677,13 +1341,11 @@ body{
 
   .gh-service-body h3{
     margin-top:5px !important;
-
     font-size:15px !important;
   }
 
   .gh-service-body p{
     margin-top:6px !important;
-
     font-size:9.5px !important;
     line-height:1.6;
   }
@@ -1695,21 +1357,16 @@ body{
 
   .gh-service-tags small{
     padding:4px 6px;
-
     font-size:7px !important;
   }
 
   .gh-service-link{
     margin-top:11px;
-
     font-size:8.5px !important;
   }
 
-  /* EXPERT */
-
   .gh-expert-grid{
     display:block;
-
     border-radius:16px;
   }
 
@@ -1723,21 +1380,17 @@ body{
 
   .gh-expert-left h2{
     margin-top:8px !important;
-
     font-size:22px !important;
   }
 
   .gh-expert-left p{
     margin-top:10px !important;
-
     font-size:10px !important;
   }
 
   .gh-expert-right{
     padding:1px;
-
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .gh-expert-item{
@@ -1750,21 +1403,16 @@ body{
 
   .gh-expert-item h3{
     margin-top:8px !important;
-
     font-size:12.5px !important;
   }
 
   .gh-expert-item p{
     margin-top:5px !important;
-
     font-size:9px !important;
   }
 
-  /* WORK */
-
   .gh-work-grid{
     grid-template-columns:1fr;
-
     gap:12px;
   }
 
@@ -1788,12 +1436,8 @@ body{
     font-size:9px !important;
   }
 
-  /* PROCESS */
-
   .gh-process{
-    grid-template-columns:
-      1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     border-radius:15px;
   }
 
@@ -1803,16 +1447,11 @@ body{
 
   .gh-process-item:nth-child(3){
     border-left:0;
-
-    border-top:
-      1px solid
-      rgba(255,255,255,.12);
+    border-top:1px solid rgba(255,255,255,.12);
   }
 
   .gh-process-item:nth-child(4){
-    border-top:
-      1px solid
-      rgba(255,255,255,.12);
+    border-top:1px solid rgba(255,255,255,.12);
   }
 
   .gh-process-item span{
@@ -1821,15 +1460,12 @@ body{
 
   .gh-process-item h3{
     margin-top:10px !important;
-
     font-size:12px !important;
   }
 
   .gh-process-item p{
     font-size:8.5px !important;
   }
-
-  /* AREA */
 
   .gh-area-grid{
     grid-template-columns:1fr;
@@ -1838,7 +1474,6 @@ body{
 
   .gh-area{
     padding:18px;
-
     border-radius:14px;
   }
 
@@ -1848,7 +1483,6 @@ body{
 
   .gh-area h3{
     margin-top:5px !important;
-
     font-size:15px !important;
   }
 
@@ -1862,11 +1496,8 @@ body{
 
   .gh-area-link{
     min-height:31px;
-
     font-size:8px !important;
   }
-
-  /* CONSULT */
 
   .gh-consult{
     padding:47px 0;
@@ -1886,15 +1517,12 @@ body{
 
   .gh-consult-card{
     margin-top:18px;
-
     padding:17px;
   }
 
   .gh-consult-card strong{
     font-size:17px !important;
   }
-
-  /* FAQ */
 
   .gh-faq{
     padding:15px;
@@ -1908,11 +1536,8 @@ body{
     font-size:9.5px !important;
   }
 
-  /* FOOTER */
-
   .gh-footer{
-    padding:
-      31px 0 105px;
+    padding:31px 0 105px;
   }
 
   .gh-footer-grid{
@@ -1923,73 +1548,42 @@ body{
     margin-top:15px;
   }
 
-  /* MOBILE */
-
   .gh-mobile{
     position:fixed;
-
     z-index:99999;
-
     left:12px;
     right:12px;
-
-    bottom:
-      calc(
-        10px +
-        env(
-          safe-area-inset-bottom
-        )
-      );
-
+    bottom:calc(
+      10px + env(safe-area-inset-bottom)
+    );
     display:grid;
-
-    grid-template-columns:
-      1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:7px;
-
     padding:7px;
-
-    border:
-      1px solid
-      rgba(14,34,62,.09);
-
+    border:1px solid rgba(14,34,62,.09);
     border-radius:15px;
-
-    background:
-      rgba(255,255,255,.95);
-
+    background:rgba(255,255,255,.95);
     box-shadow:
       0 8px 28px
       rgba(14,34,62,.14);
-
-    backdrop-filter:
-      blur(14px);
-
-    -webkit-backdrop-filter:
-      blur(14px);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
   }
 
   .gh-mobile a{
     height:45px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:10px;
-
     background:var(--navy2);
-
     color:#fff !important;
-
     font-size:10.5px !important;
     font-weight:900;
   }
 
   .gh-mobile a:last-child{
     background:#efe3cb;
-
     color:#715327 !important;
   }
 }
@@ -2247,50 +1841,26 @@ export default function HomePage() {
             <div className="gh-trust-grid">
               <div className="gh-trust-item">
                 <span>SERVICE</span>
-
-                <strong>
-                  타일 전문
-                </strong>
-
-                <p>
-                  수리 · 보수 · 교체
-                </p>
+                <strong>타일 전문</strong>
+                <p>수리 · 보수 · 교체</p>
               </div>
 
               <div className="gh-trust-item">
                 <span>AREA</span>
-
-                <strong>
-                  수도권 시공
-                </strong>
-
-                <p>
-                  서울 · 경기 · 인천
-                </p>
+                <strong>수도권 시공</strong>
+                <p>서울 · 경기 · 인천</p>
               </div>
 
               <div className="gh-trust-item">
                 <span>PHOTO</span>
-
-                <strong>
-                  사진 상담
-                </strong>
-
-                <p>
-                  파손 상태 먼저 확인
-                </p>
+                <strong>사진 상담</strong>
+                <p>파손 상태 먼저 확인</p>
               </div>
 
               <div className="gh-trust-item">
                 <span>WORK</span>
-
-                <strong>
-                  실제 시공사진
-                </strong>
-
-                <p>
-                  Before & After
-                </p>
+                <strong>실제 시공사진</strong>
+                <p>Before & After</p>
               </div>
             </div>
           </div>
@@ -2325,79 +1895,49 @@ export default function HomePage() {
             </div>
 
             <div className="gh-service-grid">
-              {SERVICES.map(
-                (service) => (
-                  <article
-                    key={
-                      service.name
-                    }
-                    className="gh-service-card"
-                  >
-                    <div className="gh-service-image">
-                      <img
-                        src={
-                          service.image
-                        }
-                        alt={`${service.name} 실제 작업`}
-                        loading="lazy"
-                      />
+              {SERVICES.map((service) => (
+                <article
+                  key={service.name}
+                  className="gh-service-card"
+                >
+                  <div className="gh-service-image">
+                    <img
+                      src={service.image}
+                      alt={`${service.name} 실제 작업`}
+                      loading="lazy"
+                    />
 
-                      <div className="gh-service-number">
-                        {
-                          service.number
-                        }
-                      </div>
+                    <div className="gh-service-number">
+                      {service.number}
+                    </div>
+                  </div>
+
+                  <div className="gh-service-body">
+                    <span>{service.en}</span>
+
+                    <h3>{service.name}</h3>
+
+                    <p>{service.description}</p>
+
+                    <div className="gh-service-tags">
+                      {service.keywords.map(
+                        (keyword) => (
+                          <small key={keyword}>
+                            {keyword}
+                          </small>
+                        )
+                      )}
                     </div>
 
-                    <div className="gh-service-body">
-                      <span>
-                        {
-                          service.en
-                        }
-                      </span>
-
-                      <h3>
-                        {
-                          service.name
-                        }
-                      </h3>
-
-                      <p>
-                        {
-                          service.description
-                        }
-                      </p>
-
-                      <div className="gh-service-tags">
-                        {service.keywords.map(
-                          (
-                            keyword
-                          ) => (
-                            <small
-                              key={
-                                keyword
-                              }
-                            >
-                              {
-                                keyword
-                              }
-                            </small>
-                          )
-                        )}
-                      </div>
-
-                      <Link
-                        href={
-                          service.href
-                        }
-                        className="gh-service-link"
-                      >
-                        자세히 보기 →
-                      </Link>
-                    </div>
-                  </article>
-                )
-              )}
+                    <Link
+                      href={service.href}
+                      className="gh-service-link"
+                    >
+                      자세히 보기 →
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -2408,9 +1948,7 @@ export default function HomePage() {
           <div className="gh-wrap">
             <div className="gh-expert-grid">
               <div className="gh-expert-left">
-                <span>
-                  WHY GEUMSON
-                </span>
+                <span>WHY GEUMSON</span>
 
                 <h2>
                   타일은
@@ -2520,66 +2058,46 @@ export default function HomePage() {
             </div>
 
             <div className="gh-work-grid">
-              {WORKS.map(
-                (work) => (
-                  <article
-                    key={
-                      work.title
-                    }
-                    className="gh-work"
-                  >
-                    <div className="gh-work-images">
-                      <div className="gh-work-image">
-                        <img
-                          src={
-                            work.before
-                          }
-                          alt={`${work.title} 작업 전`}
-                          loading="lazy"
-                        />
+              {WORKS.map((work) => (
+                <article
+                  key={work.title}
+                  className="gh-work"
+                >
+                  <div className="gh-work-images">
+                    <div className="gh-work-image">
+                      <img
+                        src={work.before}
+                        alt={`${work.title} 작업 전`}
+                        loading="lazy"
+                      />
 
-                        <span className="gh-work-label">
-                          BEFORE
-                        </span>
-                      </div>
-
-                      <div className="gh-work-image">
-                        <img
-                          src={
-                            work.after
-                          }
-                          alt={`${work.title} 작업 후`}
-                          loading="lazy"
-                        />
-
-                        <span className="gh-work-label after">
-                          AFTER
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="gh-work-body">
-                      <span>
-                        {
-                          work.category
-                        }
+                      <span className="gh-work-label">
+                        BEFORE
                       </span>
-
-                      <h3>
-                        {
-                          work.title
-                        }
-                      </h3>
-
-                      <p>
-                        {
-                          work.description
-                        }
-                      </p>
                     </div>
-                  </article>
-                )
-              )}
+
+                    <div className="gh-work-image">
+                      <img
+                        src={work.after}
+                        alt={`${work.title} 작업 후`}
+                        loading="lazy"
+                      />
+
+                      <span className="gh-work-label after">
+                        AFTER
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="gh-work-body">
+                    <span>{work.category}</span>
+
+                    <h3>{work.title}</h3>
+
+                    <p>{work.description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -2607,14 +2125,8 @@ export default function HomePage() {
 
             <div className="gh-process">
               <article className="gh-process-item">
-                <span>
-                  STEP 01
-                </span>
-
-                <h3>
-                  사진 상담
-                </h3>
-
+                <span>STEP 01</span>
+                <h3>사진 상담</h3>
                 <p>
                   파손 부위와 주변 사진을
                   먼저 확인합니다.
@@ -2622,14 +2134,8 @@ export default function HomePage() {
               </article>
 
               <article className="gh-process-item">
-                <span>
-                  STEP 02
-                </span>
-
-                <h3>
-                  상태 확인
-                </h3>
-
+                <span>STEP 02</span>
+                <h3>상태 확인</h3>
                 <p>
                   타일 규격, 파손 범위와
                   주변 상태를 확인합니다.
@@ -2637,14 +2143,8 @@ export default function HomePage() {
               </article>
 
               <article className="gh-process-item">
-                <span>
-                  STEP 03
-                </span>
-
-                <h3>
-                  수리·보수·교체
-                </h3>
-
+                <span>STEP 03</span>
+                <h3>수리·보수·교체</h3>
                 <p>
                   필요한 범위를 정리하고
                   타일 작업을 진행합니다.
@@ -2652,14 +2152,8 @@ export default function HomePage() {
               </article>
 
               <article className="gh-process-item">
-                <span>
-                  STEP 04
-                </span>
-
-                <h3>
-                  마감 확인
-                </h3>
-
+                <span>STEP 04</span>
+                <h3>마감 확인</h3>
                 <p>
                   줄눈과 주변 마감 상태를
                   확인하고 마무리합니다.
@@ -2697,14 +2191,8 @@ export default function HomePage() {
 
             <div className="gh-area-grid">
               <article className="gh-area">
-                <span>
-                  SEOUL
-                </span>
-
-                <h3>
-                  서울
-                </h3>
-
+                <span>SEOUL</span>
+                <h3>서울</h3>
                 <p>
                   서울 25개 구
                   타일수리·보수·교체
@@ -2742,13 +2230,8 @@ export default function HomePage() {
               </article>
 
               <article className="gh-area">
-                <span>
-                  GYEONGGI
-                </span>
-
-                <h3>
-                  경기
-                </h3>
+                <span>GYEONGGI</span>
+                <h3>경기</h3>
 
                 <p>
                   김포·고양·부천·파주 등
@@ -2787,13 +2270,8 @@ export default function HomePage() {
               </article>
 
               <article className="gh-area">
-                <span>
-                  INCHEON
-                </span>
-
-                <h3>
-                  인천
-                </h3>
+                <span>INCHEON</span>
+                <h3>인천</h3>
 
                 <p>
                   인천 10개 군·구
@@ -2858,9 +2336,7 @@ export default function HomePage() {
             </div>
 
             <div className="gh-consult-card">
-              <strong>
-                {PHONE_TEXT}
-              </strong>
+              <strong>{PHONE_TEXT}</strong>
 
               <small>
                 금손종합보수 사진 문자 상담
@@ -2892,28 +2368,15 @@ export default function HomePage() {
             </div>
 
             <div className="gh-faq-list">
-              {FAQS.map(
-                (faq) => (
-                  <article
-                    key={
-                      faq.q
-                    }
-                    className="gh-faq"
-                  >
-                    <h3>
-                      {
-                        faq.q
-                      }
-                    </h3>
-
-                    <p>
-                      {
-                        faq.a
-                      }
-                    </p>
-                  </article>
-                )
-              )}
+              {FAQS.map((faq) => (
+                <article
+                  key={faq.q}
+                  className="gh-faq"
+                >
+                  <h3>{faq.q}</h3>
+                  <p>{faq.a}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
